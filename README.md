@@ -1,9 +1,9 @@
 # <img src="https://i.postimg.cc/85mKDbX8/EliteSoftware-Company-Logo.png" alt="EliteSoftwareTech Logo" height="80">
 
-# EliteSoftwareTech.cc
+# Main.EliteSoftwareTech.cc
 **Information-First Engineering. Absolute System Purity.**
 
-Welcome to the official source repository for [elitesoftwaretech.cc](https://elitesoftwaretech.cc). 
+Welcome to the official source repository for [elitesoftwaretech.cc](https://main.elitesoftwaretech.cc). 
 This project serves as the digital station for EliteSoftware's engineering initiatives, blending the peak of **Frutiger Aero** (2007-2011) aesthetics with hardened, high-performance architectures of 2026.
 
 ## 🚀 Mission Protocol
@@ -15,15 +15,14 @@ EliteSoftwareTech rejects modern "flat" design in favor of skeuomorphic depth an
 - **Modern Hybridization:** Blending classic UX depth with .NET 8, PowerShell 7, and Win32 API power.
 
 ## 🛠️ Workstation Profile 
-- **Automation:** PowerShell 7.4
-- **Frameworks:** .NET 8.0
+- **Automation:** PowerShell 7.4 | 5.1
+- **Frameworks:** .NET 4.6
 - **System Modding:** Windhawk, ExplorerPatcher, SecureUXTheme
 - **Languages:** HTML/CSS/JS (Static Station)
 
 ## 🌐 Global Conduits 
-- **Patreon:** [EliteSoftwareCo](https://www.patreon.com/cw/EliteSoftwareCo)
 - **YouTube:** [EliteSoftware Channel](https://www.youtube.com/channel/UCkCJHfNFwSAJ2fu4kXmEaUg)
-- **Main Portal:** [elitesoftwaretech.cc](https://elitesoftwaretech.cc)
+- **Main Portal:** [elitesoftwaretech.cc](https://MAIN.elitesoftwaretech.cc)
 
 ## 📡 Deployment Information
 This site is designed for high-density deployment via **Cloudflare Pages**. 
