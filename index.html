@@ -778,7 +778,7 @@
                         <div class="glass-box">
                             <div class="box-header">
                                 <span>EliteSoftware Project Gallery</span>
-                                <span id="gallery-count-badge" class="status-badge live">5 LIVE PROJECTS</span>
+                                <span id="gallery-count-badge" class="status-badge live">4 LIVE PROJECTS</span>
                             </div>
                             <div class="box-body">
                                 <p style="margin-bottom: 14px;">Completed EliteSoftware projects with verified documentation, releases, and dedicated standalone portals. Additional project tiles will be added here one by one as each repository completes its rollout checklist.</p>
@@ -1077,7 +1077,7 @@
     </div>
 
     <script>
-        /* --- Project Gallery Catalog (Only completed/live portals; new tiles added as each repo completes) --- */
+        /* --- Project Gallery Catalog (Only completed/live portals; grouped by product) --- */
         const PROJECT_GALLERY = [
             {
                 name: "PidgeWin32 Native Mod Manager",
@@ -1085,35 +1085,27 @@
                 stack: "C++ / Clang / Win32",
                 status: "live",
                 statusLabel: "LIVE PORTAL",
-                summary: "Sovereign Win32 runtime hooking suite & local C++/Clang mod compiler supporting both native .pw32.cpp and legacy .wh.cpp Windhawk mods.",
+                summary: "Sovereign Win32 runtime hooking suite & local C++/Clang mod compiler (PidgeWin32_Parent-Repo) supporting native .pw32.cpp and legacy .wh.cpp mods, plus an online Mod Gallery.",
                 siteUrl: "https://pidgewin32.elitesoftwaretech.cc/",
                 repoUrl: "https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo",
                 downloadUrl: "https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/releases/latest/download/PidgeWin32-Latest-win64.zip",
-                downloadLabel: "Download Latest (v1.0.8.1)"
+                downloadLabel: "Download Latest (v1.0.8.1)",
+                extraUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
+                extraLabel: "Open Mod Gallery"
             },
             {
-                name: "PidgeWin32 Mod Gallery",
-                category: "live",
-                stack: "TypeScript / Catalog",
-                status: "live",
-                statusLabel: "LIVE PORTAL",
-                summary: "Independent online mod index and catalog frontend serving native PidgeWin32 and compatible Win32 customization mods.",
-                siteUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
-                repoUrl: "https://github.com/TheShadyRainbow4/Mods_Gallery-and_Page",
-                downloadUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
-                downloadLabel: "Open Live Gallery"
-            },
-            {
-                name: "EliteHotkeyService",
+                name: "EliteHotkey Service (Current + v1 Legacy Edition)",
                 category: "cpp",
-                stack: "C++17 / Win32 SCM",
+                stack: "C++ / Win32 Service & Named Pipes",
                 status: "live",
                 statusLabel: "LIVE PORTAL",
-                summary: "Low-level WH_KEYBOARD_LL global hotkey daemon paired with a Session 0 Windows Service (elite-hotkey-svc.exe) and Vista-styled configuration GUI.",
+                summary: "Unified portal covering both the current named-pipe/registry Elite_Hot-Key_Service (native & Win-key overrides, fullscreen blocking, SYSTEM execution) and v1 Legacy Edition (EliteHotkeyService v1.1.1.0).",
                 siteUrl: "https://elitehotkeyservice.elitesoftwaretech.cc/",
-                repoUrl: "https://github.com/TheShadyRainbow4/EliteHotkeyService",
+                repoUrl: "https://github.com/TheShadyRainbow4/Elite_Hot-Key_Service",
                 downloadUrl: "https://github.com/TheShadyRainbow4/EliteHotkeyService/releases/download/v1.1.1.0/EliteHotkeyService-v1.1.1.0-win64.zip",
-                downloadLabel: "Download Bundle (v1.1.1.0)"
+                downloadLabel: "Download v1 Legacy ZIP (v1.1.1.0)",
+                extraUrl: "https://github.com/TheShadyRainbow4/EliteHotkeyService",
+                extraLabel: "View v1 Legacy Repo"
             },
             {
                 name: "WinNTMU EliteSoftware Edition & Packs",
@@ -1125,7 +1117,9 @@
                 siteUrl: "https://winntmu.elitesoftwaretech.cc/",
                 repoUrl: "https://github.com/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK",
                 downloadUrl: "https://github.com/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK/releases/download/v2.17.27.27/WinNTMU.exe",
-                downloadLabel: "Download WinNTMU.exe (v2.17.27.27)"
+                downloadLabel: "Download WinNTMU.exe (v2.17.27.27)",
+                extraUrl: "https://github.com/TheShadyRainbow4/WinNTMU_Packs-EliteSoftware",
+                extraLabel: "View Packs Repo"
             },
             {
                 name: "Icon Maker",
@@ -1174,6 +1168,7 @@
                         <div class="project-action-row">
                             <a href="${item.siteUrl}" target="_blank" rel="noopener" class="project-action-btn primary">Dedicated Page</a>
                             <a href="${item.repoUrl}" target="_blank" rel="noopener" class="project-action-btn repo">View GitHub Repo</a>
+                            ${item.extraUrl ? `<a href="${item.extraUrl}" target="_blank" rel="noopener" class="project-action-btn repo">${item.extraLabel}</a>` : ''}
                             <a href="${item.downloadUrl}" target="_blank" rel="noopener" class="project-action-btn ${item.status === 'staging' ? 'pending' : 'download'}">${item.downloadLabel}</a>
                         </div>
                     </div>
@@ -1233,28 +1228,101 @@
             const grid = document.getElementById('github-radar-grid');
             summary.textContent = 'Fetching live repositories from GitHub...';
 
+            const EXCLUDED_RADAR_REPOS = new Set([
+                'dot.files',
+                'theshadyrainbow4',
+                'elitesoftwaretech-cc',
+                'pidgewin32-client_application-services',
+                'mods_gallery-and_page',
+                'pidgewin32_parent'
+            ]);
+
             try {
                 const [uReposRes, oReposRes] = await Promise.all([
-                    fetch('https://api.github.com/users/TheShadyRainbow4/repos?sort=pushed&per_page=12'),
-                    fetch('https://api.github.com/orgs/EliteSoftwareTech-cc/repos?sort=pushed&per_page=8')
+                    fetch('https://api.github.com/users/TheShadyRainbow4/repos?sort=pushed&per_page=100'),
+                    fetch('https://api.github.com/orgs/EliteSoftwareTech-cc/repos?sort=pushed&per_page=100')
                 ]);
                 const uRepos = uReposRes.ok ? await uReposRes.json() : [];
                 const oRepos = oReposRes.ok ? await oReposRes.json() : [];
-                const combined = [...oRepos, ...uRepos]
+
+                const rawAll = [...oRepos, ...uRepos].filter(r => {
+                    const lower = (r.name || '').toLowerCase();
+                    if (lower.startsWith('elitesoftwaretech-site-')) return false;
+                    if (EXCLUDED_RADAR_REPOS.has(lower)) return false;
+                    return true;
+                });
+
+                const groupedCards = [];
+                let winntmuGroup = null;
+                let hotkeyGroup = null;
+
+                for (const r of rawAll) {
+                    const lower = (r.name || '').toLowerCase();
+                    if (lower === 'windows_nt_modding_utility-fork' || lower === 'winntmu_packs-elitesoftware') {
+                        if (!winntmuGroup) {
+                            winntmuGroup = {
+                                name: 'WinNTMU (Utility Fork & Packs)',
+                                description: 'Grouped Windows NT Modding Utility EliteSoftware Edition + curated Vista restoration packs.',
+                                language: 'C++ / HLSL Packs',
+                                pushed_at: r.pushed_at,
+                                html_url: 'https://github.com/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK',
+                                secondary_url: 'https://github.com/TheShadyRainbow4/WinNTMU_Packs-EliteSoftware',
+                                secondary_label: 'Packs Repo'
+                            };
+                        } else if (new Date(r.pushed_at) > new Date(winntmuGroup.pushed_at)) {
+                            winntmuGroup.pushed_at = r.pushed_at;
+                        }
+                        continue;
+                    }
+                    if (lower === 'elite_hot-key_service' || lower === 'elitehotkeyservice') {
+                        if (!hotkeyGroup) {
+                            hotkeyGroup = {
+                                name: 'EliteHotkey Service (Current + v1 Legacy)',
+                                description: 'Combined global hotkey service: Elite_Hot-Key_Service (Pipe/Registry) & EliteHotkeyService (v1 Legacy Edition).',
+                                language: 'C++ / Win32',
+                                pushed_at: r.pushed_at,
+                                html_url: 'https://github.com/TheShadyRainbow4/Elite_Hot-Key_Service',
+                                secondary_url: 'https://github.com/TheShadyRainbow4/EliteHotkeyService',
+                                secondary_label: 'v1 Legacy Repo'
+                            };
+                        } else if (new Date(r.pushed_at) > new Date(hotkeyGroup.pushed_at)) {
+                            hotkeyGroup.pushed_at = r.pushed_at;
+                        }
+                        continue;
+                    }
+                    groupedCards.push({
+                        name: r.name,
+                        description: (r.description && !r.description.includes('Migrated automatically')) ? r.description : ('Public repository under ' + r.owner.login),
+                        language: r.language || 'Mixed/Docs',
+                        pushed_at: r.pushed_at,
+                        html_url: r.html_url
+                    });
+                }
+
+                if (winntmuGroup) groupedCards.push(winntmuGroup);
+                if (hotkeyGroup) groupedCards.push(hotkeyGroup);
+
+                const combined = groupedCards
                     .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
                     .slice(0, 12);
 
-                summary.textContent = `Showing ${combined.length} most recently pushed public repositories across TheShadyRainbow4 & EliteSoftwareTech-cc.`;
-                grid.innerHTML = combined.map(r => `
-                    <div class="radar-card">
-                        <h4>${r.name}</h4>
-                        <p>${(r.description && !r.description.includes('Migrated automatically')) ? r.description : 'Public repository under ' + r.owner.login}</p>
-                        <div style="font-size:11px; color:#3d5670; margin-bottom:8px;">
-                            <strong>Lang:</strong> ${r.language || 'Mixed/Docs'} &bull; <strong>Pushed:</strong> ${(r.pushed_at || '').slice(0,10)}
+                summary.textContent = `Showing ${combined.length} recently updated software repositories (excluding website repos & Dot.Files; grouped by project).`;
+                grid.innerHTML = combined.map(r => {
+                    const pushedDate = r.pushed_at ? new Date(r.pushed_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown';
+                    return `
+                        <div class="radar-card">
+                            <h4>${escapeHtml(r.name)}</h4>
+                            <p>${escapeHtml(r.description)}</p>
+                            <div style="font-size:11px; color:#3d5670; margin-bottom:8px;">
+                                <strong>Lang:</strong> ${escapeHtml(r.language)} &bull; <strong>Last Pushed:</strong> ${pushedDate}
+                            </div>
+                            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                                <a href="${r.html_url}" target="_blank" rel="noopener" class="project-action-btn repo" style="padding:5px 10px; font-size:11px;">Open on GitHub &rarr;</a>
+                                ${r.secondary_url ? `<a href="${r.secondary_url}" target="_blank" rel="noopener" class="project-action-btn repo" style="padding:5px 10px; font-size:11px;">${escapeHtml(r.secondary_label)} &rarr;</a>` : ''}
+                            </div>
                         </div>
-                        <a href="${r.html_url}" target="_blank" rel="noopener" class="project-action-btn repo" style="padding:5px 10px; font-size:11px;">Open on GitHub &rarr;</a>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
                 radarLoaded = true;
             } catch (e) {
                 summary.textContent = 'Failed to fetch GitHub API (rate limit or offline).';
