@@ -1372,11 +1372,17 @@
 
             const EXCLUDED_RADAR_REPOS = new Set([
                 'dot.files',
+                'info_-_feedback',
+                'metadator',
                 'theshadyrainbow4',
                 'elitesoftwaretech-cc',
                 'pidgewin32-client_application-services',
                 'mods_gallery-and_page',
                 'pidgewin32_parent'
+            ]);
+
+            const ALLOWED_FORKS = new Set([
+                'windows_nt_modding_utility-fork'
             ]);
 
             try {
@@ -1391,6 +1397,7 @@
                     const lower = (r.name || '').toLowerCase();
                     if (lower.startsWith('elitesoftwaretech-site-')) return false;
                     if (EXCLUDED_RADAR_REPOS.has(lower)) return false;
+                    if (r.fork && !ALLOWED_FORKS.has(lower)) return false;
                     return true;
                 });
 
