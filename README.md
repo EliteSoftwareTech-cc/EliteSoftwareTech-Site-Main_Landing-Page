@@ -21,4 +21,4 @@ Hosted on **Cloudflare Pages** (`elitesoftwaretech-main` / `elitesoftwaretech-si
 To enable server-side email delivery via `/api/contact`, add the `RESEND_API_KEY` secret in **Cloudflare Dashboard → Workers & Pages → `elitesoftwaretech-main` → Settings → Environment variables**.
 
 ---
-**Maintainer:** Zachary Whiteman ([`TheShadyRainbow4`](https://github.com/TheShadyRainbow4)) • South Carolina, USA
+**Maintainer:** EliteSoftware Tech Co. | TheShadyRainbow4 | {Zach} ([`TheShadyRainbow4`](https://github.com/TheShadyRainbow4)) • South Carolina, USA

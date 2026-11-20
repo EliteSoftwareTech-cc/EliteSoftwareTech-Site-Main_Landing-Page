@@ -37,11 +37,15 @@
 
         body {
             font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background-color: #032245;
             background-image:
-                radial-gradient(circle at 10% 20%, rgba(0, 180, 255, 0.6) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 255, 150, 0.3) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(100, 150, 255, 0.4) 0%, transparent 100%),
+                radial-gradient(ellipse at 14% 12%, rgba(56, 224, 255, 0.55) 0%, transparent 44%),
+                radial-gradient(ellipse at 86% 18%, rgba(0, 140, 255, 0.45) 0%, transparent 46%),
+                radial-gradient(ellipse at 78% 84%, rgba(30, 240, 175, 0.36) 0%, transparent 48%),
+                radial-gradient(ellipse at 24% 82%, rgba(88, 130, 255, 0.38) 0%, transparent 50%),
+                linear-gradient(145deg, #041d3d 0%, #094580 35%, #0a6ea8 68%, #0c8e8a 100%),
                 url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+            background-blend-mode: screen, screen, screen, screen, normal, overlay;
             background-attachment: fixed;
             color: #111;
             font-size: 13px;
@@ -58,19 +62,19 @@
         .main-container {
             width: 100%;
             min-height: 100vh;
-            background: var(--glass-bg);
-            backdrop-filter: blur(45px) saturate(220%);
-            -webkit-backdrop-filter: blur(45px) saturate(220%);
+            background: rgba(235, 245, 255, 0.22);
+            backdrop-filter: blur(28px) saturate(185%);
+            -webkit-backdrop-filter: blur(28px) saturate(185%);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+            box-shadow: 0 0 100px rgba(0,0,0,0.45);
         }
 
         /* --- Header: Compact Vista Gloss --- */
         header {
-            background: linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(215,230,250,0.95) 100%);
-            padding: 10px 25px;
-            border-bottom: 1px solid rgba(0,0,0,0.3);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.96) 0%, rgba(215,232,252,0.92) 100%);
+            padding: 10px 28px;
+            border-bottom: 1px solid rgba(18, 58, 102, 0.38);
             flex-shrink: 0;
             z-index: 100;
         }
@@ -79,8 +83,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1500px;
-            width: 98%;
+            width: 100%;
             margin: 0 auto;
             gap: 15px;
         }
@@ -150,70 +153,98 @@
             filter: brightness(1.05);
         }
 
-        /* --- Navigation Strips --- */
+        /* --- Navigation Strips (Vista Aero Glass Tab Bar) --- */
         .nav-strip {
-            background: linear-gradient(to bottom, #d8e6f5 0%, #adbcca 100%);
-            border-bottom: 1px solid #6a7a8a;
-            padding: 0 25px;
+            background: linear-gradient(to bottom,
+                rgba(240, 247, 255, 0.92) 0%,
+                rgba(196, 219, 244, 0.92) 48%,
+                rgba(164, 196, 232, 0.94) 50%,
+                rgba(198, 222, 246, 0.92) 100%
+            );
+            border-top: 1px solid rgba(255,255,255,0.85);
+            border-bottom: 1px solid #4d6e91;
+            padding: 6px 28px 0;
             display: flex;
             justify-content: center;
-            gap: 4px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+            flex-wrap: wrap;
+            gap: 6px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 5px 14px rgba(0, 18, 44, 0.28);
             z-index: 90;
         }
 
         .nav-btn {
-            background: linear-gradient(to bottom, #f0f5fa, #d0dbe9);
-            border: 1px solid #8da1b5;
+            position: relative;
+            background: linear-gradient(to bottom,
+                rgba(255, 255, 255, 0.92) 0%,
+                rgba(220, 235, 252, 0.88) 49%,
+                rgba(190, 214, 242, 0.90) 50%,
+                rgba(216, 234, 252, 0.90) 100%
+            );
+            border: 1px solid #6b8eb5;
             border-bottom: none;
-            padding: 6px 22px;
+            padding: 8px 20px 9px;
             font-weight: 700;
-            color: #334455;
+            color: #163a61;
             cursor: pointer;
             font-size: 12px;
-            border-radius: 6px 6px 0 0;
-            margin-top: 5px;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
-            transition: all 0.1s;
+            letter-spacing: 0.25px;
+            border-radius: 7px 7px 0 0;
+            margin-top: 2px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 2px -1px 6px rgba(0, 25, 58, 0.14);
+            transition: all 0.15s ease;
         }
 
         .nav-btn:hover {
-            filter: brightness(1.05);
-            margin-top: 3px;
-            padding-top: 8px;
+            background: linear-gradient(to bottom,
+                #ffffff 0%,
+                #dff2ff 49%,
+                #b8e1ff 50%,
+                #daf1ff 100%
+            );
+            border-color: #2f7ac7;
+            color: #062f5c;
+            box-shadow: inset 0 1px 0 #fff, 0 0 12px rgba(64, 200, 255, 0.55);
+            transform: translateY(-1px);
         }
 
         .nav-btn.active {
-            background: linear-gradient(to bottom, #ffffff 0%, #f0f5fa 100%);
+            background: linear-gradient(to bottom, #ffffff 0%, #eff6ff 55%, #ffffff 100%);
+            border-color: #366ca3;
             border-bottom: 2px solid #ffffff;
-            color: #000;
+            color: #002b5c;
+            margin-top: 0;
             margin-bottom: -1px;
-            padding-bottom: 10px;
-            box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
+            padding: 9px 22px 11px;
+            box-shadow: inset 0 2px 0 rgba(108, 198, 255, 0.85), 3px -2px 10px rgba(0, 20, 48, 0.22);
         }
 
-        /* --- Unified Multi-Column Workspace --- */
+        /* --- Unified Full-Width Workspace --- */
         main.workspace-grid {
-            max-width: 1500px;
-            width: 98%;
+            width: 100%;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 22px;
+            padding: 22px 28px 28px;
             flex-grow: 1;
         }
 
-        /* --- Internal Boxes: Rounded & 3D --- */
+        /* --- Internal Boxes: Top-Angled Directional Depth Shadows --- */
         .glass-box {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #99aac0;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            border: 1px solid rgba(132, 165, 202, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.95);
+            border-left: 1px solid rgba(255, 255, 255, 0.82);
             border-radius: var(--radius-ui);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow:
+                5px 12px 24px rgba(0, 16, 40, 0.30),
+                0 3px 8px rgba(0, 16, 40, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
             margin-bottom: 20px;
             overflow: hidden;
-            border-top: 1px solid #fff;
-            border-left: 1px solid #fff;
         }
 
         .box-header {
@@ -261,14 +292,27 @@
             margin-bottom: 6px;
         }
 
-        /* --- Sidebar Modules --- */
+        /* --- Sidebar Modules (Frosted Translucent Aero Glass) --- */
         .sidebar-module {
-            background: linear-gradient(135deg, #f0f7ff, #dae6f5);
-            border: 1px solid #a0b5cc;
+            background: linear-gradient(160deg,
+                rgba(255, 255, 255, 0.68) 0%,
+                rgba(214, 236, 255, 0.44) 48%,
+                rgba(178, 218, 252, 0.36) 52%,
+                rgba(230, 246, 255, 0.54) 100%
+            );
+            backdrop-filter: blur(20px) saturate(190%);
+            -webkit-backdrop-filter: blur(20px) saturate(190%);
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            border-bottom-color: rgba(110, 152, 198, 0.7);
+            border-right-color: rgba(110, 152, 198, 0.65);
             border-radius: var(--radius-ui);
             padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 16px;
+            box-shadow:
+                5px 11px 22px rgba(0, 16, 40, 0.28),
+                0 2px 6px rgba(0, 16, 40, 0.14),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                inset 0 0 18px rgba(255, 255, 255, 0.25);
         }
 
         .sidebar-module h4 {
@@ -470,10 +514,25 @@
         }
 
         #project-gallery-list .box-header {
-            padding: 8px 14px;
+            padding: 9px 14px;
             font-size: 13.5px;
-            flex-wrap: wrap;
-            gap: 6px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 10px;
+        }
+
+        #project-gallery-list .box-header .card-title {
+            flex: 1 1 auto;
+            min-width: 0;
+            max-width: 66%;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         #project-gallery-list .box-body {
@@ -507,7 +566,7 @@
             font-weight: 700;
             text-decoration: none;
             text-align: center;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.65), 0 2px 4px rgba(0,0,0,0.12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 3px 5px 10px rgba(0, 16, 40, 0.20);
             transition: filter 0.15s ease;
         }
         .project-action-btn:hover { filter: brightness(1.07); }
@@ -518,10 +577,11 @@
             text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
         }
         #page-projects .project-action-btn.primary {
-            background: linear-gradient(to bottom, #9af7f0 0%, #48dcd2 49%, #24bab0 50%, #40d1c7 100%);
-            color: #033330;
-            border: 1px solid #17877f;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.65);
+            background: linear-gradient(to bottom, #2ebdb3 0%, #148c84 49%, #0b6962 50%, #16827a 100%);
+            color: #ffffff;
+            border: 1px solid #074742;
+            text-shadow: 0 -1px 1px rgba(0,0,0,0.55);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.42), 3px 5px 10px rgba(0, 16, 40, 0.24);
         }
         .project-action-btn.repo {
             background: linear-gradient(to bottom, #ffffff 0%, #dceeff 100%);
@@ -529,16 +589,20 @@
             border: 1px solid #89b0d8;
         }
         #page-projects .project-action-btn.repo {
-            background: linear-gradient(to bottom, #66707a 0%, #454d56 49%, #2f363d 50%, #3f4750 100%);
+            background: linear-gradient(to bottom, #5b6570 0%, #3c444d 49%, #272d34 50%, #363e47 100%);
             color: #ffffff;
-            border: 1px solid #1f2429;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.65);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 2px 4px rgba(0,0,0,0.18);
+            border: 1px solid #181c21;
+            text-shadow: 0 -1px 1px rgba(0,0,0,0.7);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 3px 5px 10px rgba(0, 16, 40, 0.26);
         }
         #page-projects .status-badge.live {
             background: linear-gradient(to bottom, #c57dff 0%, #9440eb 49%, #7320c9 50%, #8f3be3 100%);
             color: #ffffff;
             border: 1px solid #4c0f8f;
+            font-size: 9px;
+            padding: 2px 8px;
+            flex-shrink: 0;
+            letter-spacing: 0.35px;
         }
         .project-action-btn.download {
             background: linear-gradient(to bottom, #3dd67e 0%, #23a85c 50%, #1d8f4d 51%, #26ad60 100%);
@@ -564,7 +628,7 @@
             border: 1px solid #aec4dc;
             border-radius: 8px;
             padding: 13px;
-            box-shadow: inset 0 1px 0 #fff, 0 2px 6px rgba(0,0,0,0.06);
+            box-shadow: inset 0 1px 0 #fff, 4px 8px 16px rgba(0, 16, 40, 0.16);
         }
 
         .radar-card h4 {
@@ -720,8 +784,8 @@
                             </div>
                             <div class="box-body">
                                 <div class="info-section">
-                                    <h3>About Zachary (TheShadyRainbow4) &amp; EliteSoftwareTech Co.</h3>
-                                    <p>Welcome to <strong>EliteSoftwareTech.cc</strong> &mdash; the portfolio and software station for <strong>Zachary Whiteman</strong> (<code>TheShadyRainbow4</code>), a Computer Science student and developer based in South Carolina. This hub brings together native Windows utilities, COM shell extensions, PowerShell automation tools, Android system utilities, and web apps built with a deep appreciation for the Windows Vista / 7 Frutiger Aero era. AI and "vibe coding" are used here as an engineering accelerator &mdash; as a tool, never a replacement.</p>
+                                    <h3>About EliteSoftware Tech Co. | TheShadyRainbow4 | {Zach}</h3>
+                                    <p>Welcome to <strong>EliteSoftwareTech.cc</strong> &mdash; the portfolio and software station for <strong>EliteSoftware Tech Co. | TheShadyRainbow4 | {Zach}</strong>, a Computer Science student and developer based in South Carolina. This hub brings together native Windows utilities, COM shell extensions, PowerShell automation tools, Android system utilities, and web apps built with a deep appreciation for the Windows Vista / 7 Frutiger Aero era. AI and "vibe coding" are used here as an engineering accelerator &mdash; as a tool, never a replacement.</p>
                                 </div>
 
                                 <div class="info-section">
@@ -1030,7 +1094,7 @@
                                     </div>
 
                                     <div class="terminal-box" style="border-left: 5px solid #2980b9; margin-top: 12px;">
-                                        <strong style="color:white;">Direct Liaison (Zachary Whiteman)</strong>
+                                        <strong style="color:white;">Direct Liaison (Zach)</strong>
                                         <code>zachary.whiteman@elitesoftwaretech.cc</code>
                                     </div>
                                 </div>
@@ -1089,9 +1153,9 @@
                         <div class="tech-tag">TypeScript / Pages</div>
                     </div>
 
-                    <div class="sidebar-module" style="background: rgba(255,255,255,0.5); border-color: #3a6ea5; box-shadow: inset 0 0 10px rgba(255,255,255,0.8);">
+                    <div class="sidebar-module">
                         <h4><img src="https://img.icons8.com/fluency/48/user-male-circle.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Developer Profile</h4>
-                        <p style="font-size: 12px;"><strong>Developer:</strong> Zachary (TheShadyRainbow4)</p>
+                        <p style="font-size: 12px;"><strong>Identity:</strong> EliteSoftware Tech Co. | TheShadyRainbow4 | {Zach}</p>
                         <p style="font-size: 12px;"><strong>Location:</strong> South Carolina, USA</p>
                         <p style="font-size: 12px;"><strong>Focus:</strong> CS Student &bull; Vista/Aero &amp; Win32</p>
                         <p id="sidebar-gh-stats" style="font-size: 11px; margin-top: 6px; color: #003b75; font-weight: 700;">
@@ -1105,8 +1169,8 @@
 
             <!-- Corporate Footer -->
             <footer>
-                <div style="max-width: 1500px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; width: 100%;">
-                    <div>Copyright &copy; 2024-2026 EliteSoftwareTech Co. &bull; Maintained by Zachary (TheShadyRainbow4).</div>
+                <div style="width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div>Copyright &copy; 2024-2026 EliteSoftware Tech Co. &bull; EliteSoftware Tech Co. | TheShadyRainbow4 | {Zach}</div>
                     <div style="font-weight: 700; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">
                         EliteSoftwareTech.cc v7.0.0.0 &bull; Cloudflare Pages Edge
                     </div>
@@ -1134,16 +1198,17 @@
             {
                 name: "PidgeWin32 Native Mod Manager",
                 category: "live",
-                stack: "C++ / Clang / Win32",
+                stack: "C++ / Clang / Win32 (Windows 10 & Older)",
                 status: "live",
                 statusLabel: "LIVE PORTAL",
-                summary: "Sovereign Win32 runtime hooking suite & local C++/Clang mod compiler (PidgeWin32_Parent-Repo) supporting native .pw32.cpp and legacy .wh.cpp mods, plus an online Mod Gallery.",
+                summary: "A heavily redesigned fork of Windhawk aimed specifically at Windows 10 and older (with no Windows 11 mods included). Features its own native .pw32.cpp mod format while still supporting classic .wh.cpp Windhawk mods, paired with an online Mod Gallery.",
                 siteUrl: "https://pidgewin32.elitesoftwaretech.cc/",
                 repoUrl: "https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo",
                 downloadUrl: "https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/releases/latest/download/PidgeWin32-Latest-win64.zip",
                 downloadLabel: "Download Latest (v1.0.8.1)",
                 extraUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
-                extraLabel: "Open Mod Gallery"
+                extraLabel: "Open Mod Gallery",
+                extraIsPrimary: true
             },
             {
                 name: "EliteHotkey Service (Current + v1 Legacy Edition)",
@@ -1212,15 +1277,18 @@
             container.innerHTML = filtered.map(item => `
                 <div class="glass-box">
                     <div class="box-header">
-                        <span>${item.name}</span>
-                        <span class="status-badge ${item.status}">${item.statusLabel} &bull; ${item.stack}</span>
+                        <span class="card-title">${item.name}</span>
+                        <span class="status-badge ${item.status}">${item.statusLabel}</span>
                     </div>
                     <div class="box-body">
-                        <p style="font-size: 13px; color: #1b2f44;">${item.summary}</p>
+                        <div>
+                            <div style="margin-bottom: 8px;"><span class="tech-tag" style="margin:0;">${item.stack}</span></div>
+                            <p style="font-size: 13px; color: #1b2f44;">${item.summary}</p>
+                        </div>
                         <div class="project-action-row">
                             <a href="${item.siteUrl}" target="_blank" rel="noopener" class="project-action-btn primary">Dedicated Page</a>
                             <a href="${item.repoUrl}" target="_blank" rel="noopener" class="project-action-btn repo">View GitHub Repo</a>
-                            ${item.extraUrl ? `<a href="${item.extraUrl}" target="_blank" rel="noopener" class="project-action-btn repo">${item.extraLabel}</a>` : ''}
+                            ${item.extraUrl ? `<a href="${item.extraUrl}" target="_blank" rel="noopener" class="project-action-btn ${item.extraIsPrimary ? 'primary' : 'repo'}">${item.extraLabel}</a>` : ''}
                             <a href="${item.downloadUrl}" target="_blank" rel="noopener" class="project-action-btn ${item.status === 'staging' ? 'pending' : 'download'}">${item.downloadLabel}</a>
                         </div>
                     </div>
