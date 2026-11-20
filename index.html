@@ -916,7 +916,7 @@
                         <div class="glass-box">
                             <div class="box-header">
                                 <span>EliteSoftware Project Gallery</span>
-                                <span id="gallery-count-badge" class="status-badge live">4 LIVE PROJECTS</span>
+                                <span id="gallery-count-badge" class="status-badge live">5 LIVE PROJECTS</span>
                             </div>
                             <div class="box-body">
                                 <p style="margin-bottom: 14px;">Completed EliteSoftware projects with verified documentation, releases, and dedicated standalone portals. Additional project tiles will be added here one by one as each repository completes its rollout checklist.</p>
@@ -1054,12 +1054,9 @@
                                 <a href="https://blogs.elitesoftwaretech.cc/" target="_blank" rel="noopener" class="filter-btn" style="text-decoration:none;">Open Blogs Subdomain &rarr;</a>
                             </div>
                             <div class="box-body">
-                                <p style="margin-bottom: 14px;">Content below is pulled live from GitHub so documentation, profile notes, and technical write-ups stay synchronized without hardcoding. Select a live source to inspect:</p>
-                                <div class="filter-group" style="margin-bottom: 14px;">
+                                <p style="margin-bottom: 14px;">Content below is pulled live from GitHub so documentation, profile notes, and technical write-ups stay synchronized without hardcoding. Select a live source or any Project Archive repository to read its README:</p>
+                                <div class="filter-group" id="kb-buttons-bar" style="margin-bottom: 14px;">
                                     <button class="filter-btn active" onclick="loadKnowledgeSource('profile', this)">About Zach (TheShadyRainbow4)</button>
-                                    <button class="filter-btn" onclick="loadKnowledgeSource('pidgewin32', this)">PidgeWin32 Architecture</button>
-                                    <button class="filter-btn" onclick="loadKnowledgeSource('build-auto', this)">Build Automations</button>
-                                    <button class="filter-btn" onclick="loadKnowledgeSource('kb-repo', this)">Custom KB Repo (Live)</button>
                                 </div>
                                 <div id="kb-source-meta" style="font-size: 11px; font-weight: 700; color: #003b75; margin-bottom: 8px;">Loading live markdown from GitHub...</div>
                                 <div id="kb-content" class="kb-rendered">Fetching live documentation...</div>
@@ -1271,6 +1268,18 @@
                 repoUrl: "https://github.com/TheShadyRainbow4/Icon_Maker",
                 downloadUrl: "https://github.com/TheShadyRainbow4/Icon_Maker/releases/download/1.2.5.0/IconMaker.exe",
                 downloadLabel: "Download IconMaker.exe (1.2.5.0)"
+            },
+            {
+                name: "EliteSoftware Build Automations",
+                category: "cpp",
+                stack: "C++ CLI Master Suite (40+ Tools)",
+                status: "live",
+                statusLabel: "LIVE PORTAL",
+                summary: "Configuration-driven native C++ CLI build, PE icon/checksum forging, Authenticode signing, Inno Setup packaging, and service automation suite replacing per-repo scripts.",
+                siteUrl: "https://elitesoftware-build-automations.elitesoftwaretech.cc/",
+                repoUrl: "https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations",
+                downloadUrl: "https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/releases/download/v1.0.2.6/EliteSoftware-Build-Automations_x64.zip",
+                downloadLabel: "Download x64 Suite (v1.0.2.6)"
             }
         ];
 
@@ -1516,29 +1525,67 @@
         const KB_SOURCES = {
             'profile': {
                 label: 'TheShadyRainbow4/TheShadyRainbow4 (Profile README)',
+                title: 'About Zach (TheShadyRainbow4)',
                 api: 'https://api.github.com/repos/TheShadyRainbow4/TheShadyRainbow4/readme',
-                raw: 'https://raw.githubusercontent.com/TheShadyRainbow4/TheShadyRainbow4/main/README.md',
                 repoUrl: 'https://github.com/TheShadyRainbow4'
-            },
-            'pidgewin32': {
-                label: 'TheShadyRainbow4/PidgeWin32_Parent-Repo (README)',
-                api: 'https://api.github.com/repos/TheShadyRainbow4/PidgeWin32_Parent-Repo/readme',
-                raw: 'https://raw.githubusercontent.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/main/README.md',
-                repoUrl: 'https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo'
-            },
-            'build-auto': {
-                label: 'EliteSoftwareTech-cc/EliteSoftware_Build-Automations (README)',
-                api: 'https://api.github.com/repos/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/readme',
-                raw: 'https://raw.githubusercontent.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/main/README.md',
-                repoUrl: 'https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations'
             },
             'kb-repo': {
                 label: 'EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase (Custom KB Repo)',
+                title: 'EliteSoftware Knowledge Base',
                 api: 'https://api.github.com/repos/EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase/readme',
-                raw: 'https://raw.githubusercontent.com/EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase/main/README.md',
-                repoUrl: 'https://github.com/EliteSoftwareTech-cc'
+                repoUrl: 'https://github.com/EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase'
+            },
+            'pidgewin32': {
+                label: 'TheShadyRainbow4/PidgeWin32_Parent-Repo (README)',
+                title: 'PidgeWin32',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/PidgeWin32_Parent-Repo/readme',
+                repoUrl: 'https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo'
+            },
+            'hotkey-current': {
+                label: 'TheShadyRainbow4/Elite_Hot-Key_Service (Current Edition README)',
+                title: 'EliteHotkey Service (Current)',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/Elite_Hot-Key_Service/readme',
+                repoUrl: 'https://github.com/TheShadyRainbow4/Elite_Hot-Key_Service'
+            },
+            'hotkey-legacy': {
+                label: 'TheShadyRainbow4/EliteHotkeyService (v1 Legacy Edition README)',
+                title: 'EliteHotkey Service (v1 Legacy)',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/EliteHotkeyService/readme',
+                repoUrl: 'https://github.com/TheShadyRainbow4/EliteHotkeyService'
+            },
+            'winntmu': {
+                label: 'TheShadyRainbow4/Windows_NT_Modding_Utility-FORK (README)',
+                title: 'WinNTMU Utility',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK/readme',
+                repoUrl: 'https://github.com/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK'
+            },
+            'winntmu-packs': {
+                label: 'TheShadyRainbow4/WinNTMU_Packs-EliteSoftware (README)',
+                title: 'WinNTMU Packs',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/WinNTMU_Packs-EliteSoftware/readme',
+                repoUrl: 'https://github.com/TheShadyRainbow4/WinNTMU_Packs-EliteSoftware'
+            },
+            'icon-maker': {
+                label: 'TheShadyRainbow4/Icon_Maker (README)',
+                title: 'Icon Maker',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/Icon_Maker/readme',
+                repoUrl: 'https://github.com/TheShadyRainbow4/Icon_Maker'
+            },
+            'build-auto': {
+                label: 'EliteSoftwareTech-cc/EliteSoftware_Build-Automations (README)',
+                title: 'Build Automations',
+                api: 'https://api.github.com/repos/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/readme',
+                repoUrl: 'https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations'
             }
         };
+
+        function renderKnowledgeButtons() {
+            const bar = document.getElementById('kb-buttons-bar');
+            if (!bar) return;
+            bar.innerHTML = Object.entries(KB_SOURCES).map(([key, item], idx) => `
+                <button class="filter-btn ${idx === 0 ? 'active' : ''}" onclick="loadKnowledgeSource('${key}', this)">${escapeHtml(item.title)}</button>
+            `).join('');
+        }
 
         function escapeHtml(str) {
             return str.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -1901,6 +1948,7 @@
         }
         loadGitHubTelemetry();
         renderProjectGallery();
+        renderKnowledgeButtons();
     </script>
 </body>
 </html>
