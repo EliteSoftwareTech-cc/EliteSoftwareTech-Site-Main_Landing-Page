@@ -522,20 +522,23 @@
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.12);
         }
 
-        #project-gallery-list {
+        #project-gallery-list,
+        #games-gallery-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 16px;
             margin-bottom: 20px;
         }
 
-        #project-gallery-list .glass-box {
+        #project-gallery-list .glass-box,
+        #games-gallery-list .glass-box {
             margin-bottom: 0;
             display: flex;
             flex-direction: column;
         }
 
-        #project-gallery-list .box-header {
+        #project-gallery-list .box-header,
+        #games-gallery-list .box-header {
             padding: 9px 14px;
             font-size: 13.5px;
             display: flex;
@@ -545,7 +548,8 @@
             gap: 10px;
         }
 
-        #project-gallery-list .box-header .card-title {
+        #project-gallery-list .box-header .card-title,
+        #games-gallery-list .box-header .card-title {
             flex: 1 1 auto;
             min-width: 0;
             max-width: 66%;
@@ -557,7 +561,8 @@
             overflow: hidden;
         }
 
-        #project-gallery-list .box-body {
+        #project-gallery-list .box-body,
+        #games-gallery-list .box-body {
             padding: 14px 16px;
             flex: 1;
             display: flex;
@@ -572,7 +577,8 @@
             margin-top: 12px;
         }
 
-        #project-gallery-list .project-action-row {
+        #project-gallery-list .project-action-row,
+        #games-gallery-list .project-action-row {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 8px;
         }
@@ -598,7 +604,8 @@
             border: 1px solid #134a82;
             text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
         }
-        #page-projects .project-action-btn.primary {
+        #page-projects .project-action-btn.primary,
+        #page-games .project-action-btn.primary {
             background: linear-gradient(to bottom, #2ebdb3 0%, #148c84 49%, #0b6962 50%, #16827a 100%);
             color: #ffffff;
             border: 1px solid #074742;
@@ -610,14 +617,16 @@
             color: #0b4a85;
             border: 1px solid #89b0d8;
         }
-        #page-projects .project-action-btn.repo {
+        #page-projects .project-action-btn.repo,
+        #page-games .project-action-btn.repo {
             background: linear-gradient(to bottom, #5b6570 0%, #3c444d 49%, #272d34 50%, #363e47 100%);
             color: #ffffff;
             border: 1px solid #181c21;
             text-shadow: 0 -1px 1px rgba(0,0,0,0.7);
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 3px 5px 10px rgba(0, 16, 40, 0.26);
         }
-        #page-projects .status-badge.live {
+        #page-projects .status-badge.live,
+        #page-games .status-badge.live {
             background: linear-gradient(to bottom, #c57dff 0%, #9440eb 49%, #7320c9 50%, #8f3be3 100%);
             color: #ffffff;
             border: 1px solid #4c0f8f;
@@ -625,6 +634,36 @@
             padding: 2px 8px;
             flex-shrink: 0;
             letter-spacing: 0.35px;
+        }
+        .game-tile-banner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #0c233a 0%, #154566 60%, #106b6a 100%);
+            border: 1px solid #75a7d6;
+            border-radius: 7px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 3px 8px rgba(0,16,40,0.22);
+        }
+        .game-tile-banner img {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            padding: 4px;
+            flex-shrink: 0;
+        }
+        .game-tile-banner-meta {
+            color: #eaf7ff;
+            font-size: 11.5px;
+            line-height: 1.35;
+        }
+        .game-tile-banner-meta strong {
+            display: block;
+            font-size: 13px;
+            color: #7ef9ef;
         }
         .project-action-btn.download {
             background: linear-gradient(to bottom, #3dd67e 0%, #23a85c 50%, #1d8f4d 51%, #26ad60 100%);
@@ -785,6 +824,7 @@
                 <button class="nav-btn active" onclick="showPage('home')">Welcome Station</button>
                 <button class="nav-btn" onclick="showPage('radar')">GITHUB RADAR</button>
                 <button class="nav-btn" onclick="showPage('projects')">PROJECT ARCHIVE</button>
+                <button class="nav-btn" onclick="showPage('games')">GAMES &amp; FUN</button>
                 <button class="nav-btn" onclick="showPage('console')">SYSTEM CONSOLE</button>
                 <button class="nav-btn" onclick="showPage('tools')">MEDIA TOOLKIT</button>
                 <button class="nav-btn" onclick="showPage('blogs')">KNOWLEDGE BASE</button>
@@ -822,6 +862,7 @@
 
                                 <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px;">
                                     <button class="elite-button" onclick="showPage('projects')">Browse Project Archive</button>
+                                    <button class="elite-button" onclick="showPage('games')">Play Games &amp; Fun</button>
                                     <button class="elite-button" onclick="showPage('radar')">Inspect Live GitHub Radar</button>
                                     <button class="elite-button" onclick="showPage('contact')">Contact Support</button>
                                 </div>
@@ -940,6 +981,38 @@
                             </div>
                             <div class="box-body">
                                 <p style="font-size: 13px; color: #1b2f44;">Additional Win32 utilities, PowerShell automation suites, COM shell extensions, and web apps are currently undergoing README verification, screenshot capture, and release packaging before their standalone pages and gallery tiles go live here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3B: GAMES & FUN (Grid of Playable Game Tiles) -->
+                    <div id="page-games" class="page-view" style="display:none;">
+                        <div class="glass-box">
+                            <div class="box-header">
+                                <span>EliteSoftware Games &amp; Interactive Sandboxes</span>
+                                <span id="games-count-badge" class="status-badge live">1 PLAYABLE GAME</span>
+                            </div>
+                            <div class="box-body">
+                                <p style="margin-bottom: 14px;">Browser-playable games, artificial-life simulations, and interactive web sandboxes built by <strong>EliteSoftware Tech Co. | TheShadyRainbow4 | {Zach}</strong>. Select any tile below to jump straight into its game page.</p>
+                                <div class="gallery-controls">
+                                    <div class="filter-group">
+                                        <button class="filter-btn active" onclick="filterGames('all', this)">All Games</button>
+                                        <button class="filter-btn" onclick="filterGames('sim', this)">Simulations</button>
+                                    </div>
+                                    <input type="text" id="games-search" class="search-input" placeholder="Filter games &amp; sandboxes..." oninput="renderGamesGallery()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="games-gallery-list"></div>
+
+                        <div class="glass-box">
+                            <div class="box-header">
+                                <span>More Games &amp; Experiments Coming Soon</span>
+                                <span class="status-badge staging">EXPANSION QUEUE</span>
+                            </div>
+                            <div class="box-body">
+                                <p style="font-size: 13px; color: #1b2f44;">More browser games, simulations, and fun interactive builds will drop into this grid as they are released. Check back as new titles go live!</p>
                             </div>
                         </div>
                     </div>
@@ -1292,6 +1365,73 @@
             });
             if (btn) btn.classList.add('active');
             renderProjectGallery();
+        }
+
+        /* --- Games & Fun Tile Catalog --- */
+        const GAMES_GALLERY = [
+            {
+                name: "EcoSimulator (Project Aetheria)",
+                category: "sim",
+                stack: "HTML5 Canvas & JavaScript • Artificial Life Game",
+                status: "live",
+                statusLabel: "PLAYABLE LIVE",
+                bannerSubtitle: "Virtual Bio-Dome • 8 Interactive Species & Terrain Brushes",
+                thumbUrl: "https://i.postimg.cc/DZTjtNg1/Elite-Software-Company-Simulator-LOGO.png",
+                summary: "Set inside the Aetheria Fragment bio-dome, EcoSimulator lets you shape rivers, forests, caves, berry bushes, and glow fungi, then spawn 8 distinct artificial-life species (Fish, Grazers, Critters, Rodents, Predators, Stalkers, Titans, and Scavengers) to watch complex predator-prey behaviors unfold in real time inside a glossy Aqua/Vista Glass HUD.",
+                playUrl: "https://theshadyrainbow4.github.io/EcoSimulator/",
+                repoUrl: "https://github.com/TheShadyRainbow4/EcoSimulator"
+            }
+        ];
+
+        let currentGamesFilter = "all";
+
+        function filterGames(cat, btn) {
+            currentGamesFilter = cat;
+            document.querySelectorAll('.filter-group .filter-btn').forEach(b => {
+                if (b.getAttribute('onclick')?.includes('filterGames')) b.classList.remove('active');
+            });
+            if (btn) btn.classList.add('active');
+            renderGamesGallery();
+        }
+
+        function renderGamesGallery() {
+            const container = document.getElementById('games-gallery-list');
+            if (!container) return;
+            const q = (document.getElementById('games-search')?.value || "").toLowerCase().trim();
+            const filtered = GAMES_GALLERY.filter(item => {
+                const catOk = currentGamesFilter === "all" || item.category === currentGamesFilter;
+                const qOk = !q || item.name.toLowerCase().includes(q) || item.stack.toLowerCase().includes(q) || item.summary.toLowerCase().includes(q);
+                return catOk && qOk;
+            });
+
+            const badge = document.getElementById('games-count-badge');
+            if (badge) badge.textContent = `${filtered.length} PLAYABLE ${filtered.length === 1 ? 'GAME' : 'GAMES'}`;
+
+            container.innerHTML = filtered.map(item => `
+                <div class="glass-box">
+                    <div class="box-header">
+                        <span class="card-title">${escapeHtml(item.name)}</span>
+                        <span class="status-badge ${item.status}">${escapeHtml(item.statusLabel)}</span>
+                    </div>
+                    <div class="box-body">
+                        <div>
+                            <div class="game-tile-banner">
+                                ${item.thumbUrl ? `<img src="${item.thumbUrl}" alt="${escapeHtml(item.name)}" onerror="this.style.display='none'">` : ''}
+                                <div class="game-tile-banner-meta">
+                                    <strong>${escapeHtml(item.name)}</strong>
+                                    <span>${escapeHtml(item.bannerSubtitle)}</span>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 8px;"><span class="tech-tag" style="margin:0;">${escapeHtml(item.stack)}</span></div>
+                            <p style="font-size: 13px; color: #1b2f44;">${escapeHtml(item.summary)}</p>
+                        </div>
+                        <div class="project-action-row">
+                            <a href="${item.playUrl}" target="_blank" rel="noopener" class="project-action-btn primary">Play Game &rarr;</a>
+                            <a href="${item.repoUrl}" target="_blank" rel="noopener" class="project-action-btn repo">View GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function renderProjectGallery() {
@@ -1738,6 +1878,7 @@
 
             if (pageId === 'radar') loadGitHubRadar();
             if (pageId === 'projects') renderProjectGallery();
+            if (pageId === 'games') renderGamesGallery();
             if (pageId === 'console') runEndpointMonitor();
             if (pageId === 'blogs') loadKnowledgeSource('profile');
         }
@@ -1948,6 +2089,7 @@
         }
         loadGitHubTelemetry();
         renderProjectGallery();
+        renderGamesGallery();
         renderKnowledgeButtons();
     </script>
 </body>
