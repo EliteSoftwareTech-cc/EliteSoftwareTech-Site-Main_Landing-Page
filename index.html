@@ -778,7 +778,7 @@
                         <div class="glass-box">
                             <div class="box-header">
                                 <span>EliteSoftware Project Gallery</span>
-                                <span id="gallery-count-badge" class="status-badge live">2 LIVE PROJECTS</span>
+                                <span id="gallery-count-badge" class="status-badge live">5 LIVE PROJECTS</span>
                             </div>
                             <div class="box-body">
                                 <p style="margin-bottom: 14px;">Completed EliteSoftware projects with verified documentation, releases, and dedicated standalone portals. Additional project tiles will be added here one by one as each repository completes its rollout checklist.</p>
@@ -786,6 +786,7 @@
                                     <div class="filter-group">
                                         <button class="filter-btn active" onclick="filterGallery('all', this)">All Live</button>
                                         <button class="filter-btn" onclick="filterGallery('live', this)">Portals</button>
+                                        <button class="filter-btn" onclick="filterGallery('cpp', this)">C++ &amp; Win32</button>
                                     </div>
                                     <input type="text" id="gallery-search" class="search-input" placeholder="Filter live projects..." oninput="renderProjectGallery()">
                                 </div>
@@ -1101,6 +1102,42 @@
                 repoUrl: "https://github.com/TheShadyRainbow4/Mods_Gallery-and_Page",
                 downloadUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
                 downloadLabel: "Open Live Gallery"
+            },
+            {
+                name: "EliteHotkeyService",
+                category: "cpp",
+                stack: "C++17 / Win32 SCM",
+                status: "live",
+                statusLabel: "LIVE PORTAL",
+                summary: "Low-level WH_KEYBOARD_LL global hotkey daemon paired with a Session 0 Windows Service (elite-hotkey-svc.exe) and Vista-styled configuration GUI.",
+                siteUrl: "https://elitehotkeyservice.elitesoftwaretech.cc/",
+                repoUrl: "https://github.com/TheShadyRainbow4/EliteHotkeyService",
+                downloadUrl: "https://github.com/TheShadyRainbow4/EliteHotkeyService/releases/download/v1.1.1.0/EliteHotkeyService-v1.1.1.0-win64.zip",
+                downloadLabel: "Download Bundle (v1.1.1.0)"
+            },
+            {
+                name: "WinNTMU EliteSoftware Edition & Packs",
+                category: "cpp",
+                stack: "C++ / TrustedInstaller + 8 Packs",
+                status: "live",
+                statusLabel: "LIVE PORTAL",
+                summary: "Unified portal for the Windows NT Modding Utility fork (automated reverse backups, ZIP drag-and-drop, UIPI bypass) and 8 curated Vista restoration packs.",
+                siteUrl: "https://winntmu.elitesoftwaretech.cc/",
+                repoUrl: "https://github.com/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK",
+                downloadUrl: "https://github.com/TheShadyRainbow4/Windows_NT_Modding_Utility-FORK/releases/download/v2.17.27.27/WinNTMU.exe",
+                downloadLabel: "Download WinNTMU.exe (v2.17.27.27)"
+            },
+            {
+                name: "Icon Maker",
+                category: "cpp",
+                stack: "C++ / Win32 & GDI+",
+                status: "live",
+                statusLabel: "LIVE PORTAL",
+                summary: "Native Windows studio for creating, editing, and exporting hybrid multi-resolution .ico containers (256px PNG down to 16px DIB) with auto background stripping.",
+                siteUrl: "https://icon-maker.elitesoftwaretech.cc/",
+                repoUrl: "https://github.com/TheShadyRainbow4/Icon_Maker",
+                downloadUrl: "https://github.com/TheShadyRainbow4/Icon_Maker/releases/download/1.2.5.0/IconMaker.exe",
+                downloadLabel: "Download IconMaker.exe (1.2.5.0)"
             }
         ];
 
