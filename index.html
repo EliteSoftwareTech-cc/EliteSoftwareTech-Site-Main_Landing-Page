@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EliteSoftwareTech.cc :: Information-First Software Engineering</title>
+    <title>EliteSoftwareTech.cc :: Classic Windows Engineering &amp; Software Portfolio</title>
     <link rel="icon" type="image/png" href="https://i.postimg.cc/85mKDbX8/EliteSoftware-Company-Logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Aero & Information-First Design Tokens --- */
+        /* --- Frutiger Aero & Information-First Design Tokens --- */
         :root {
             --glass-bg: rgba(255, 255, 255, 0.45);
             --glass-border: rgba(255, 255, 255, 0.7);
@@ -21,7 +21,7 @@
             --radius-ui: 10px;
         }
 
-        * { 
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -29,15 +29,15 @@
 
         /* --- Desktop Hard-Lock & Fluid Scaling --- */
         html, body {
-            min-width: 1024px; 
+            min-width: 1024px;
             background-color: #002d5a;
             height: 100%;
-            overflow-x: hidden; /* Prevent horizontal scrollbars */
+            overflow-x: hidden;
         }
 
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-image: 
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(0, 180, 255, 0.6) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(0, 255, 150, 0.3) 0%, transparent 40%),
                 radial-gradient(circle at 50% 50%, rgba(100, 150, 255, 0.4) 0%, transparent 100%),
@@ -46,10 +46,9 @@
             color: #111;
             font-size: 13px;
             overflow-y: scroll;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
-        /* --- Full-Screen Sharp Container --- */
         .app-wrapper {
             width: 100%;
             display: flex;
@@ -64,8 +63,6 @@
             -webkit-backdrop-filter: blur(45px) saturate(220%);
             display: flex;
             flex-direction: column;
-            border-radius: 0;
-            border: none;
             box-shadow: 0 0 100px rgba(0,0,0,0.5);
         }
 
@@ -85,6 +82,7 @@
             max-width: 1500px;
             width: 98%;
             margin: 0 auto;
+            gap: 15px;
         }
 
         .logo-group {
@@ -103,7 +101,7 @@
             font-size: 30px;
             font-weight: 700;
             color: #003b75;
-            letter-spacing: -1.5px;
+            letter-spacing: -1.2px;
             text-shadow: 0 1px 0 #fff;
             line-height: 1;
         }
@@ -113,8 +111,43 @@
             color: #4a5a6a;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 2px;
+            letter-spacing: 1.8px;
+            margin-top: 3px;
+        }
+
+        .header-status-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .header-badges-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: linear-gradient(to bottom, #ffffff 0%, #e4f0fc 100%);
+            border: 1px solid #96b5d6;
+            box-shadow: inset 0 1px 0 #fff, 0 2px 5px rgba(0,0,0,0.12);
+            font-weight: 800;
+            font-size: 11px;
+        }
+
+        .repo-counter-pill {
+            color: #003b75;
+            text-decoration: none;
+            transition: filter 0.15s ease;
+        }
+        .repo-counter-pill:hover {
+            filter: brightness(1.05);
         }
 
         /* --- Navigation Strips --- */
@@ -133,7 +166,7 @@
             background: linear-gradient(to bottom, #f0f5fa, #d0dbe9);
             border: 1px solid #8da1b5;
             border-bottom: none;
-            padding: 6px 25px;
+            padding: 6px 22px;
             font-weight: 700;
             color: #334455;
             cursor: pointer;
@@ -147,7 +180,7 @@
         .nav-btn:hover {
             filter: brightness(1.05);
             margin-top: 3px;
-            padding-top: 10px;
+            padding-top: 8px;
         }
 
         .nav-btn.active {
@@ -155,7 +188,7 @@
             border-bottom: 2px solid #ffffff;
             color: #000;
             margin-bottom: -1px;
-            padding-bottom: 12px;
+            padding-bottom: 10px;
             box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
         }
 
@@ -192,6 +225,10 @@
             text-shadow: 0 -1px 1px rgba(0,0,0,0.6);
             border-bottom: 1px solid #0b2e4d;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
         }
 
         .box-header::before {
@@ -200,18 +237,28 @@
             top: 1px; left: 1px; right: 1px; height: 40%;
             background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
             border-radius: 8px 8px 2px 2px;
+            pointer-events: none;
         }
 
         .box-body {
             padding: 20px;
         }
 
+        .info-section {
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e3ebf5;
+        }
+        .info-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
         .info-section h3 {
             color: #003b75;
-            font-size: 18px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
+            font-size: 17px;
+            margin-bottom: 6px;
         }
 
         /* --- Sidebar Modules --- */
@@ -228,10 +275,10 @@
             color: #003b75;
             margin-bottom: 10px;
             text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
+            font-size: 12px;
+            letter-spacing: 0.8px;
             border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding-bottom: 3px;
+            padding-bottom: 4px;
         }
 
         /* --- The 3D GEL Button (Wet Reflective Aero Style) --- */
@@ -240,9 +287,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 30px;
-            background: linear-gradient(to bottom, 
-                #00d1d1 0%, 
+            padding: 9px 22px;
+            background: linear-gradient(to bottom,
+                #00d1d1 0%,
                 #00a3a3 50%,
                 #008080 50%,
                 #004d4d 100%
@@ -253,19 +300,19 @@
             font-weight: 700;
             text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.4);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.28), inset 0 1px 1px rgba(255,255,255,0.45);
             text-shadow: 0 1px 2px rgba(0,0,0,0.8);
             overflow: hidden;
-            font-size: 13px;
+            font-size: 12px;
             transition: transform 0.1s, filter 0.2s;
         }
 
         .elite-button:hover {
-            filter: brightness(1.15) saturate(1.2);
+            filter: brightness(1.12) saturate(1.15);
         }
 
         .elite-button:active {
-            transform: translateY(2px);
+            transform: translateY(1px);
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
@@ -273,69 +320,219 @@
             content: '';
             position: absolute;
             top: 1px; left: 5%; width: 90%; height: 42%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.1) 100%);
             border-radius: 40px 40px 10px 10px;
+            pointer-events: none;
         }
 
-        /* --- Graphics & Visuals --- */
-        .tech-visual {
+        /* --- Aero Visuals & Badges --- */
+        .vista-showcase {
             width: 100%;
-            height: 220px;
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            height: 210px;
+            background-image: url('https://github.com/user-attachments/assets/5e5d94a8-df73-4e45-a43e-d2ad555776bd');
             background-size: cover;
             background-position: center;
             border-radius: 8px;
-            margin-top: 15px;
+            margin-top: 12px;
             border: 1px solid #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 0 24px rgba(255,255,255,0.4);
             position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .vista-showcase-caption {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 32, 68, 0.88), rgba(0, 32, 68, 0.45));
+            color: #ffffff;
+            padding: 10px 16px;
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.35);
+            backdrop-filter: blur(8px);
         }
 
         .tech-tag {
             display: inline-block;
-            background: #fff;
-            border: 1px solid #ccc;
+            background: linear-gradient(to bottom, #ffffff, #e6eff8);
+            border: 1px solid #b5c7da;
             padding: 3px 10px;
             border-radius: 50px;
             font-size: 11px;
             font-weight: 700;
             margin: 2px;
             color: #003b75;
+            box-shadow: inset 0 1px 0 #fff;
+        }
+
+        .status-badge {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 2px 9px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(0,0,0,0.35);
+            white-space: nowrap;
+        }
+        .status-badge.live {
+            background: linear-gradient(to bottom, #4be38d, #1e9e56);
+            color: #fff;
+            border: 1px solid #136b3a;
+        }
+        .status-badge.release {
+            background: linear-gradient(to bottom, #ffd86f, #e09a19);
+            color: #2d1b00;
+            border: 1px solid #996400;
+        }
+        .status-badge.staging {
+            background: linear-gradient(to bottom, #e6f0fa, #bfd4ea);
+            color: #133b66;
+            border: 1px solid #7d9fc4;
         }
 
         .conduit-link {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px;
-            background: rgba(255,255,255,0.6);
-            border: 1px solid #c0d1e3;
+            padding: 8px 12px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(224,236,248,0.88));
+            border: 1px solid #9bb7d4;
             border-radius: 6px;
-            color: #2a7abc;
+            color: #0b4a85;
             text-decoration: none;
             font-weight: 700;
             margin-bottom: 8px;
             font-size: 12px;
+            box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,0.08);
+            transition: filter 0.15s ease;
+        }
+        .conduit-link:hover {
+            filter: brightness(1.04);
         }
 
-        /* --- Footer --- */
-        footer {
-            background: linear-gradient(to bottom, #2c3e50 0%, #000 100%);
+        /* --- Project Archive Gallery Cards (PidgeWin32 Style) --- */
+        .gallery-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .filter-btn {
+            background: linear-gradient(to bottom, #ffffff, #d9e6f4);
+            border: 1px solid #8ea8c4;
+            border-radius: 50px;
+            padding: 5px 13px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #123e6b;
+            cursor: pointer;
+            box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .filter-btn.active {
+            background: linear-gradient(to bottom, #6db3f2 0%, #3a89d6 49%, #1f6cb8 50%, #3787d4 100%);
             color: #fff;
-            padding: 20px;
-            text-align: center;
-            font-size: 12px;
-            border-top: 3px solid #2a7abc;
-            flex-shrink: 0;
+            border-color: #134a82;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
         }
 
-        /* --- Liaison Terminal --- */
+        .search-input {
+            padding: 6px 12px;
+            border-radius: 50px;
+            border: 1px solid #8ea8c4;
+            font-family: inherit;
+            font-size: 12px;
+            min-width: 240px;
+            background: #fff;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .project-action-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .project-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.65), 0 2px 4px rgba(0,0,0,0.12);
+            transition: filter 0.15s ease;
+        }
+        .project-action-btn:hover { filter: brightness(1.07); }
+        .project-action-btn.primary {
+            background: linear-gradient(to bottom, #6db3f2 0%, #3a89d6 49%, #1f6cb8 50%, #3787d4 100%);
+            color: #fff;
+            border: 1px solid #134a82;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
+        }
+        .project-action-btn.repo {
+            background: linear-gradient(to bottom, #ffffff 0%, #dceeff 100%);
+            color: #0b4a85;
+            border: 1px solid #89b0d8;
+        }
+        .project-action-btn.download {
+            background: linear-gradient(to bottom, #3dd67e 0%, #23a85c 50%, #1d8f4d 51%, #26ad60 100%);
+            color: #fff;
+            border: 1px solid #166b3a;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
+        }
+        .project-action-btn.pending {
+            background: linear-gradient(to bottom, #f4f7fb 0%, #dde6f0 100%);
+            color: #4b6178;
+            border: 1px solid #aec0d4;
+        }
+
+        /* --- Probe / Radar Grids --- */
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .radar-card {
+            background: linear-gradient(to bottom, #ffffff, #eef5fc);
+            border: 1px solid #aec4dc;
+            border-radius: 8px;
+            padding: 13px;
+            box-shadow: inset 0 1px 0 #fff, 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .radar-card h4 {
+            color: #003b75;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .radar-card p {
+            font-size: 12px;
+            color: #354b60;
+            margin-bottom: 8px;
+        }
+
         .terminal-box {
-            background: #000;
-            border: 1px solid #333;
+            background: #04101c;
+            border: 1px solid #2b4c6e;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: inset 0 0 10px #000;
+            box-shadow: inset 0 0 12px #000;
         }
         .terminal-box code, .terminal-box pre {
             display: block;
@@ -343,8 +540,41 @@
             color: var(--elite-cyan);
             font-family: 'Consolas', monospace;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .kb-rendered {
+            background: #f8fbff;
+            border: 1px solid #b8cde3;
+            border-radius: 8px;
+            padding: 18px;
+            max-height: 460px;
+            overflow-y: auto;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .kb-rendered h1, .kb-rendered h2, .kb-rendered h3 {
+            color: #003b75;
+            margin: 12px 0 6px;
+        }
+        .kb-rendered pre {
+            background: #07192b;
+            color: #8ceeff;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        footer {
+            background: linear-gradient(to bottom, #2c3e50 0%, #000 100%);
+            color: #fff;
+            padding: 18px 25px;
+            font-size: 12px;
+            border-top: 3px solid #2a7abc;
+            flex-shrink: 0;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -359,16 +589,22 @@
                         <img src="https://i.postimg.cc/85mKDbX8/EliteSoftware-Company-Logo.png" alt="EliteSoftwareTech Logo" class="corporate-logo">
                         <div class="brand-text">
                             <h1>EliteSoftwareTech.cc</h1>
-                            <p>Information-First Engineering. Absolute System Purity.</p>
+                            <p>Classic Windows Engineering &bull; Frutiger Aero &bull; Open-Source Utilities</p>
                         </div>
                     </div>
-                    <div style="text-align: right;">
-                        <div id="system-status-container" style="display: flex; align-items: center; gap: 8px; color: #2ecc71; font-weight: 800; font-size: 11px;">
-                            <div id="status-dot" style="width: 8px; height: 8px; background: #2ecc71; border-radius: 50%; box-shadow: 0 0 8px #2ecc71;"></div>
-                            <span id="status-text">CORE SYSTEMS: NOMINAL</span>
+                    <div class="header-status-stack">
+                        <div class="header-badges-row">
+                            <a href="https://github.com/TheShadyRainbow4?tab=repositories" target="_blank" rel="noopener" class="status-pill repo-counter-pill" id="repo-counter-pill" title="Live public repository count across TheShadyRainbow4 and EliteSoftwareTech-cc">
+                                <img src="https://img.icons8.com/fluency/48/repository.png" width="16" height="16" alt="Repos">
+                                <span id="public-repo-counter">PUBLIC REPOS: SYNCING...</span>
+                            </a>
+                            <div id="system-status-container" class="status-pill" style="color: #1f8a4d;">
+                                <div id="status-dot" style="width: 9px; height: 9px; background: #2ecc71; border-radius: 50%; box-shadow: 0 0 8px #2ecc71;"></div>
+                                <span id="status-text">CORE SYSTEMS: NOMINAL</span>
+                            </div>
                         </div>
-                        <div style="font-size: 10px; color: #666; margin-top: 3px;">
-                            BUILD: 6.0.0.0_PRODUCTION | UPDATED: 03-APR-2026
+                        <div style="font-size: 10px; color: #516478; font-weight: 700;">
+                            BUILD: 7.0.0.0_PRODUCTION | UPDATED: 20-NOV-2026
                         </div>
                     </div>
                 </div>
@@ -377,7 +613,7 @@
             <!-- Navigation Tabs -->
             <nav class="nav-strip">
                 <button class="nav-btn active" onclick="showPage('home')">Welcome Station</button>
-                <button class="nav-btn" onclick="showPage('services')">ENGINEERING SERVICES</button>
+                <button class="nav-btn" onclick="showPage('radar')">GITHUB RADAR</button>
                 <button class="nav-btn" onclick="showPage('projects')">PROJECT ARCHIVE</button>
                 <button class="nav-btn" onclick="showPage('console')">SYSTEM CONSOLE</button>
                 <button class="nav-btn" onclick="showPage('tools')">MEDIA TOOLKIT</button>
@@ -387,52 +623,59 @@
 
             <!-- Unified Workspace Grid -->
             <main class="workspace-grid">
-                
+
                 <!-- Primary Information Column -->
                 <div class="main-column">
-                    
+
+                    <!-- TAB 1: WELCOME STATION -->
                     <div id="page-home" class="page-view">
                         <div class="glass-box">
-                            <div class="box-header">Executive Manifesto & Mission Protocol</div>
+                            <div class="box-header">
+                                <span>Welcome to EliteSoftwareTech.cc</span>
+                                <span class="status-badge live">THESHADYRAINBOW4 &bull; SOUTH CAROLINA</span>
+                            </div>
                             <div class="box-body">
                                 <div class="info-section">
-                                    <h3>Information-First Engineering</h3>
-                                    <p>Welcome to <strong>EliteSoftwareTech.cc</strong>. Our engineering initiative rejects the modern "flat" movement in favor of skeuomorphic depth and absolute user agency. We believe software should be an immersive workstation environment, not a mobile-friendly toy.</p>
+                                    <h3>About Zachary (TheShadyRainbow4) &amp; EliteSoftwareTech Co.</h3>
+                                    <p>Welcome to <strong>EliteSoftwareTech.cc</strong> &mdash; the portfolio and software station for <strong>Zachary Whiteman</strong> (<code>TheShadyRainbow4</code>), a Computer Science student and developer based in South Carolina. This hub brings together native Windows utilities, COM shell extensions, PowerShell automation tools, Android system utilities, and web apps built with a deep appreciation for the Windows Vista / 7 Frutiger Aero era. AI and "vibe coding" are used here as an engineering accelerator &mdash; as a tool, never a replacement.</p>
                                 </div>
 
                                 <div class="info-section">
-                                    <h3>The 2007-2026 Hybridization</h3>
-                                    <p>Blending the peak of <strong>Frutiger Aero</strong> (2007-2011) with the hardened, high-performance architectures of 2026. We are proving that power and beauty are not mutually exclusive.</p>
+                                    <h3>Windows Vista / Aero &amp; Classic Shell Restoration</h3>
+                                    <p>Over 200 repositories and local desktop builds are steadily being cleaned, documented, and published &mdash; spanning classic shell replacements and restorations (<code>Classic7-Sys32</code>, <code>Explorer7-Vista</code>, <code>CPL Restoration 4.0 H1</code>, <code>ClassicShutdown</code>, <code>WinFlip3D</code>) alongside modern C++, C#, and PowerShell tooling designed to feel right at home on Vista, Windows 7, and modern Windows 10/11 workstations.</p>
+                                    <div class="vista-showcase">
+                                        <div class="vista-showcase-caption">
+                                            <strong>Legacy-Meets-Modern Craft:</strong> High-gloss glass depth, classic desktop utility ergonomics, and native Win32 responsiveness without flat minimalism.
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="info-section">
-                                    <h3>Flagship Project: Aerexplorer</h3>
-                                    <p>Restoring functional and aesthetic purity to the Windows shell using kernel-level resource redirection and runtime DLL hooking.</p>
-                                    <div class="tech-visual"></div>
-                                </div>
-
-                                <div style="margin-top: 20px; display: flex; gap: 15px;">
-                                    <button class="elite-button" onclick="showPage('contact')">Establish Liaison</button>
-                                    <button class="elite-button" style="background: linear-gradient(to bottom, #ff00ff 0%, #cc00cc 50%, #990099 50%, #660066 100%); border-color: #440044;" onclick="openSystemModal()">Initialize Probe</button>
+                                <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px;">
+                                    <button class="elite-button" onclick="showPage('projects')">Browse Project Archive</button>
+                                    <button class="elite-button" onclick="showPage('radar')">Inspect Live GitHub Radar</button>
+                                    <button class="elite-button" onclick="showPage('contact')">Contact Support</button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="glass-box">
-                            <div class="box-header">PidgeWin32 Native Win32 Mod Manager &amp; Sovereign Catalog</div>
+                            <div class="box-header">
+                                <span>PidgeWin32 Native Win32 Mod Manager &amp; Sovereign Catalog</span>
+                                <span class="status-badge live">FLAGSHIP LIVE</span>
+                            </div>
                             <div class="box-body">
                                 <div class="info-section">
                                     <h3>Zero-Bloat Native Win32 Injection Suite</h3>
-                                    <p><strong>PidgeWin32</strong> is EliteSoftware's sovereign Win32 customization platform &mdash; featuring a high-speed native C++/Clang local compiler, dual-mode <code>.pw32.cpp</code> and legacy <code>.wh.cpp</code> mod architecture, a native Win32 UI &amp; classic tray balloon daemon, and an independent 365-mod gallery.</p>
+                                    <p><strong>PidgeWin32</strong> is EliteSoftware's sovereign Win32 customization platform &mdash; featuring a high-speed native C++/Clang local compiler, dual-mode <code>.pw32.cpp</code> and legacy <code>.wh.cpp</code> mod architecture, a native Win32 UI &amp; classic tray balloon daemon, and an independent mod gallery.</p>
                                 </div>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 14px;">
-                                    <a href="https://pidgewin32.elitesoftwaretech.cc/" target="_blank" class="conduit-link" style="justify-content: center; background: linear-gradient(to bottom, #6db3f2 0%, #3a89d6 49%, #1f6cb8 50%, #3787d4 100%); color: #fff; border-color: #134a82; margin-bottom: 0;">
+                                <div class="project-action-row">
+                                    <a href="https://pidgewin32.elitesoftwaretech.cc/" target="_blank" rel="noopener" class="project-action-btn primary">
                                         PidgeWin32 Main Portal
                                     </a>
-                                    <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" target="_blank" class="conduit-link" style="justify-content: center; background: linear-gradient(to bottom, #ffffff 0%, #dceeff 100%); margin-bottom: 0;">
+                                    <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" target="_blank" rel="noopener" class="project-action-btn repo">
                                         Browse Online Mod Gallery
                                     </a>
-                                    <a href="https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/releases/latest/download/PidgeWin32-Latest-win64.zip" class="conduit-link" style="justify-content: center; background: linear-gradient(to bottom, #2ecc71 0%, #219653 100%); color: #fff; border-color: #186a3b; margin-bottom: 0;">
+                                    <a href="https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/releases/latest/download/PidgeWin32-Latest-win64.zip" class="project-action-btn download">
                                         Download Latest Release
                                     </a>
                                 </div>
@@ -440,32 +683,41 @@
                         </div>
 
                         <div class="glass-box">
-                            <div class="box-header">Development Toolchain & Standards</div>
+                            <div class="box-header">Development Toolchain &amp; Real Project Domains</div>
                             <div class="box-body">
-                                <p>EliteSoftware operates with a zero-compromise approach to system purity. Scripts engineered in <strong>PowerShell 7</strong> ensure absolute telemetry. We leverage <strong>Windhawk</strong>, <strong>ExplorerPatcher</strong>, and <strong>SecureUXTheme</strong> to surgically alter the OS experience.</p>
+                                <div class="info-section">
+                                    <h3>Native C++ / Win32 &amp; Binary Tooling</h3>
+                                    <p>Native compiled executables and Win32 injectors built with MSVC, Clang/LLVM, and the Windows SDK: <strong>PidgeWin32</strong>, <strong>EliteSoftware_Build-Automations</strong>, <strong>ResourceAlchemist_PE_Editor-Extractor</strong>, <strong>Icon_Maker</strong>, <strong>ISO_Ripper</strong>, <strong>EliteHotkeyService</strong>, and <strong>Windows_NT_Modding_Utility-FORK</strong>.</p>
+                                </div>
+                                <div class="info-section">
+                                    <h3>PowerShell WinForms &amp; System Automation</h3>
+                                    <p>STA-mode PowerShell 5.1 / 7 GUI utilities and deployment scripts: <strong>Asset_Tagging_System-2025</strong>, <strong>QuickInstaller</strong>, <strong>IPV4_QUICK_MANAGER</strong>, <strong>MP3-Editor-EliteSoftware</strong>, <strong>PowerShell-ExecutionPolicy</strong>, and <strong>Windows11-BypassNRO-Mitigation</strong>.</p>
+                                </div>
+                                <div class="info-section">
+                                    <h3>C# COM Shell Extensions, Android &amp; Web</h3>
+                                    <p>Native-adjacent Explorer property sheets and context menu extensions (<strong>EliteSoftware-Shell_Extensions</strong>, <strong>WIM Image Manager</strong>, <strong>WMP Property Tab</strong>, <strong>Sound Scheme Migrator</strong>), Kotlin Android tooling (<strong>ShizElite</strong>), and TypeScript/Cloudflare Pages web apps (<strong>EliteSoftware-HomePage-Dashboard</strong>, <strong>EcoSimulator</strong>).</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="glass-box">
-                            <div class="box-header">Physical Node Specs & Hardware Environment</div>
+                            <div class="box-header">Repository Sanitization &amp; Public Release Pipeline</div>
                             <div class="box-body">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                                     <div>
-                                        <h4 style="color: #003b75; font-size: 13px; border-bottom: 1px solid #ccc; margin-bottom: 8px;">Mainframe Specs (ELITE-WS-01)</h4>
-                                        <ul style="list-style: none; font-size: 11px; line-height: 1.6;">
-                                            <li><strong>CPU:</strong> Intel Core i7-9700K @ 4.9GHz (All-Core)</li>
-                                            <li><strong>GPU:</strong> NVIDIA RTX 2080 Super (8GB GDDR6)</li>
-                                            <li><strong>RAM:</strong> 32GB DDR4 High-Performance Node</li>
-                                            <li><strong>OS:</strong> Windows Server 2008 R2 / PowerShell 7.4</li>
+                                        <h4 style="color: #003b75; font-size: 13px; border-bottom: 1px solid #ccc; margin-bottom: 8px; padding-bottom: 4px;">Personal Lab (TheShadyRainbow4)</h4>
+                                        <ul style="list-style: none; font-size: 12px; line-height: 1.7;">
+                                            <li><strong>Focus:</strong> Win32 mods, Vista/7 UI restoration, system utilities</li>
+                                            <li><strong>Active Desktop Lab:</strong> Classic7-Sys32, Ex7Config, ClassicShutdown, CPL Restoration, DISMGUI</li>
+                                            <li><strong>Subdomains:</strong> Dedicated <code>*.elitesoftwaretech.cc</code> portals being staged per repo</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 style="color: #003b75; font-size: 13px; border-bottom: 1px solid #ccc; margin-bottom: 8px;">Interface Array</h4>
-                                        <ul style="list-style: none; font-size: 11px; line-height: 1.6;">
-                                            <li><strong>Display:</strong> Triple-Monitor Panoramic Setup</li>
-                                            <li><strong>Primary Node:</strong> Acer High-Refresh Panel</li>
-                                            <li><strong>Auxiliary Nodes:</strong> Dual HP System Displays</li>
-                                            <li id="node-region-spec"><strong>Region:</strong> Fingerlakes Region, Upstate New York (Eastern Standard Time NY)</li>
+                                        <h4 style="color: #003b75; font-size: 13px; border-bottom: 1px solid #ccc; margin-bottom: 8px; padding-bottom: 4px;">Organization (EliteSoftwareTech-cc)</h4>
+                                        <ul style="list-style: none; font-size: 12px; line-height: 1.7;">
+                                            <li><strong>Focus:</strong> Build automations, live Cloudflare Pages sites &amp; infrastructure</li>
+                                            <li><strong>Live Portals:</strong> Main Portal, PidgeWin32, Mod Gallery, Coming Soon Gateway</li>
+                                            <li><strong>Queue:</strong> Private repositories undergoing sanitization &amp; release packaging</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -473,69 +725,94 @@
                         </div>
                     </div>
 
-                    <div id="page-services" class="page-view" style="display:none;">
+                    <!-- TAB 2: GITHUB RADAR (Repurposed from Engineering Services) -->
+                    <div id="page-radar" class="page-view" style="display:none;">
                         <div class="glass-box">
-                            <div class="box-header">Engineering Capabilities & Consultative Services</div>
+                            <div class="box-header">
+                                <span>Live GitHub Repository Radar</span>
+                                <button class="filter-btn" onclick="loadGitHubRadar(true)" style="margin:0;">Refresh Live Feed</button>
+                            </div>
                             <div class="box-body">
-                                <div class="info-section">
-                                    <h3>Windows Core Customization</h3>
-                                    <p>Surgical OS alterations through Windhawk mods and registry-level hardening. We specialize in restoring the skeuomorphic peak of the Aero era while maintaining 2026 performance standards.</p>
-                                </div>
-                                <div class="info-section">
-                                    <h3>PowerShell Automation Suites</h3>
-                                    <p>End-to-end automation for workstation deployment, system telemetry, and resource management. If it can be typed, it can be automated.</p>
-                                </div>
-                                <div class="info-section">
-                                    <h3>Information Architecture</h3>
-                                    <p>Designing high-density data environments that prioritize user agency and rapid information retrieval over "clean" (empty) aesthetics.</p>
+                                <p style="margin-bottom: 14px;">Live repository metadata pulled directly from the GitHub API for <strong>TheShadyRainbow4</strong> and <strong>EliteSoftwareTech-cc</strong>, sorted by most recently pushed.</p>
+                                <div id="github-radar-summary" style="margin-bottom: 14px; font-size: 12px; font-weight: 700; color: #003b75;">Loading live GitHub repositories...</div>
+                                <div id="github-radar-grid" class="radar-grid"></div>
+                            </div>
+                        </div>
+
+                        <div class="glass-box">
+                            <div class="box-header">Desktop Projects Lab &amp; Upcoming Public Queue</div>
+                            <div class="box-body">
+                                <p style="margin-bottom: 12px;">Active local engineering tracks in the desktop workspace queued for cleanup, documentation, release packaging, and standalone subdomain deployment:</p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                                    <span class="tech-tag">Classic7-Sys32</span>
+                                    <span class="tech-tag">Explorer7-Vista</span>
+                                    <span class="tech-tag">Ex7Config</span>
+                                    <span class="tech-tag">CPL Restoration 4.0 H1</span>
+                                    <span class="tech-tag">ClassicShutdown-2.0.3-x64</span>
+                                    <span class="tech-tag">ClassicAppearanceApplet</span>
+                                    <span class="tech-tag">ControlPanelManagementPreferences</span>
+                                    <span class="tech-tag">WinFlip3D</span>
+                                    <span class="tech-tag">DISMGUI</span>
+                                    <span class="tech-tag">Elevate-DeElevateTool</span>
+                                    <span class="tech-tag">ShellRestarter</span>
+                                    <span class="tech-tag">SysListViewEnabler_v3</span>
+                                    <span class="tech-tag">LogonVistaOrb_FORK</span>
+                                    <span class="tech-tag">RestoreWindowsMediaPlayer11</span>
+                                    <span class="tech-tag">EliteIconPackager</span>
+                                    <span class="tech-tag">EliteSoftware-EasySigner</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- TAB 3: PROJECT ARCHIVE (PidgeWin32-Style Card Gallery — Populated As Repos Complete) -->
                     <div id="page-projects" class="page-view" style="display:none;">
                         <div class="glass-box">
-                            <div class="box-header">Active Project Archive</div>
+                            <div class="box-header">
+                                <span>EliteSoftware Project Gallery</span>
+                                <span id="gallery-count-badge" class="status-badge live">2 LIVE PROJECTS</span>
+                            </div>
                             <div class="box-body">
-                                <div class="info-section">
-                                    <h3>PidgeWin32 Native Mod Manager</h3>
-                                    <p>Our flagship Win32 runtime hooking suite &amp; sovereign mod ecosystem. Built for local source compilation, safe disabled-by-default builds, classic Win32 menus &amp; tray balloon notifications. <a href="https://pidgewin32.elitesoftwaretech.cc/" target="_blank" style="color: #003b75; font-weight: 800;">Open PidgeWin32 Portal &rarr;</a> &bull; <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" target="_blank" style="color: #0b7a75; font-weight: 800;">Browse Mod Gallery &rarr;</a></p>
+                                <p style="margin-bottom: 14px;">Completed EliteSoftware projects with verified documentation, releases, and dedicated standalone portals. Additional project tiles will be added here one by one as each repository completes its rollout checklist.</p>
+                                <div class="gallery-controls">
+                                    <div class="filter-group">
+                                        <button class="filter-btn active" onclick="filterGallery('all', this)">All Live</button>
+                                        <button class="filter-btn" onclick="filterGallery('live', this)">Portals</button>
+                                    </div>
+                                    <input type="text" id="gallery-search" class="search-input" placeholder="Filter live projects..." oninput="renderProjectGallery()">
                                 </div>
-                                <div class="info-section">
-                                    <h3>Aerexplorer v2.1</h3>
-                                    <p>A comprehensive shell replacement project focused on bringing back the high-gloss, high-utility UI of the late 2000s to modern Windows kernels.</p>
-                                </div>
-                                <div class="info-section">
-                                    <h3>System Purity Toolset</h3>
-                                    <p>A collection of scripts and binaries designed to purge OEM telemetry and restore absolute system control to the end user.</p>
-                                </div>
-                                <div class="info-section">
-                                    <h3>DENSE-UI Framework</h3>
-                                    <p>A CSS/JS library for building modern skeuomorphic applications with a focus on information density and visual depth.</p>
-                                </div>
+                            </div>
+                        </div>
+
+                        <div id="project-gallery-list"></div>
+
+                        <div class="glass-box">
+                            <div class="box-header">
+                                <span>Upcoming Standalone Project Rollout</span>
+                                <span class="status-badge staging">STAGED &bull; COMING SOON</span>
+                            </div>
+                            <div class="box-body">
+                                <p style="font-size: 13px; color: #1b2f44;">Additional Win32 utilities, PowerShell automation suites, COM shell extensions, and web apps are currently undergoing README verification, screenshot capture, and release packaging before their standalone pages and gallery tiles go live here.</p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- TAB 4: SYSTEM CONSOLE (Network Subdomain Monitor + Speed Test) -->
                     <div id="page-console" class="page-view" style="display:none;">
                         <div class="glass-box">
-                            <div class="box-header">Core Diagnostics Console</div>
+                            <div class="box-header">Live Subdomain &amp; Edge Reachability Monitor</div>
                             <div class="box-body">
-                                <p style="margin-bottom: 15px;">Execute a comprehensive scan of the local environment parameters.</p>
-                                <div class="terminal-box">
-                                    <pre id="diagnostics-log">[READY] Waiting for user input...</pre>
-                                </div>
-                                <div style="margin-top: 20px;">
-                                    <button class="elite-button" onclick="runDiagnostics()">Execute Core Scan</button>
-                                </div>
+                                <p style="margin-bottom: 14px;">Verify live HTTP/edge response times from your browser against active <strong>EliteSoftwareTech.cc</strong> portals and upstream GitHub APIs.</p>
+                                <div id="endpoint-monitor-grid" class="radar-grid" style="margin-bottom: 16px;"></div>
+                                <button class="elite-button" onclick="runEndpointMonitor()">Run Live Endpoint Probe</button>
                             </div>
                         </div>
 
                         <div class="glass-box">
-                            <div class="box-header">Network Throughput & Latency Probe</div>
+                            <div class="box-header">Network Throughput &amp; Latency Probe</div>
                             <div class="box-body">
-                                <p style="margin-bottom: 20px;">Measure the current node's connectivity performance against global conduits.</p>
-                                
+                                <p style="margin-bottom: 20px;">Measure your connection's latency, Cloudflare edge download throughput, and upload capacity.</p>
+
                                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 25px;">
                                     <div class="sidebar-module" style="text-align: center; background: linear-gradient(to bottom, #f0f9ff, #cbebff); border: 1px solid #7cb9e8; box-shadow: inset 0 2px 10px rgba(255,255,255,0.8);">
                                         <div style="font-size: 11px; font-weight: 800; color: #003b75; text-transform: uppercase;">Latency (Ping)</div>
@@ -563,17 +840,18 @@
                         </div>
                     </div>
 
+                    <!-- TAB 5: MEDIA TOOLKIT -->
                     <div id="page-tools" class="page-view" style="display:none;">
                         <div class="glass-box">
                             <div class="box-header">MEDIA CONVERSION TOOLKIT</div>
                             <div class="box-body">
-                                <p style="margin-bottom: 20px;">Locally execute high-performance media transcoding and manipulation. Processes run entirely on your node.</p>
+                                <p style="margin-bottom: 20px;">Locally execute client-side media transcoding and batch image formatting directly in your browser without uploading files.</p>
 
                                 <div class="sidebar-module" style="background: rgba(0,0,0,0.05); border: 1px solid #bccad6;">
                                     <h4 style="margin-bottom: 15px;"><img src="https://img.icons8.com/fluency/48/image.png" width="20" style="vertical-align: middle; margin-right: 5px;"> Image Processor</h4>
                                     <input type="file" id="image-upload" multiple accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
                                     <button class="elite-button" onclick="document.getElementById('image-upload').click()">Select Images</button>
-                                    
+
                                     <div style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                                         <div>
                                             <label style="font-size: 10px; font-weight: 800; color: #003b75;">OUTPUT FORMAT</label>
@@ -596,13 +874,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <button class="elite-button" style="margin-top: 15px; background: linear-gradient(to bottom, #2ecc71, #27ae60); border-color: #219653;" onclick="processImages()">Process & Download</button>
+                                    <button class="elite-button" style="margin-top: 15px; background: linear-gradient(to bottom, #2ecc71, #27ae60); border-color: #219653;" onclick="processImages()">Process &amp; Download</button>
                                     <div id="img-preview" style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
                                 </div>
 
                                 <div class="sidebar-module" style="background: rgba(0,0,0,0.05); border: 1px solid #bccad6;">
                                     <h4 style="margin-bottom: 15px;"><img src="https://img.icons8.com/fluency/48/audio-wave.png" width="20" style="vertical-align: middle; margin-right: 5px;"> Audio Encoder</h4>
-                                    <p style="font-size: 11px; margin-bottom: 10px;">Extracts audio streams from files (MP4, MP3, WAV, etc.) and encodes to uncompressed standard format.</p>
+                                    <p style="font-size: 11px; margin-bottom: 10px;">Extracts audio streams from files (MP4, MP3, WAV, etc.) and encodes to uncompressed standard WAV format.</p>
                                     <input type="file" id="audio-upload" multiple accept="audio/*,video/*" style="display:none;" onchange="handleAudioUpload(event)">
                                     <button class="elite-button" onclick="document.getElementById('audio-upload').click()">Select Media Files</button>
 
@@ -614,86 +892,84 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <button class="elite-button" id="audio-process-btn" style="margin-top: 15px; background: linear-gradient(to bottom, #2ecc71, #27ae60); border-color: #219653;" onclick="processAudio()">Transcode & Download</button>
+                                    <button class="elite-button" id="audio-process-btn" style="margin-top: 15px; background: linear-gradient(to bottom, #2ecc71, #27ae60); border-color: #219653;" onclick="processAudio()">Transcode &amp; Download</button>
                                     <p id="audio-status" style="font-size: 11px; font-weight: 800; color: #003b75; margin-top: 10px;"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- TAB 6: KNOWLEDGE BASE (Live GitHub-Backed Content) -->
                     <div id="page-blogs" class="page-view" style="display:none;">
                         <div class="glass-box">
-                            <div class="box-header">KNOWLEDGE BASE & RESEARCH</div>
+                            <div class="box-header">
+                                <span>LIVE KNOWLEDGE BASE &amp; DEVELOPER DOSSIER</span>
+                                <a href="https://blogs.elitesoftwaretech.cc/" target="_blank" rel="noopener" class="filter-btn" style="text-decoration:none;">Open Blogs Subdomain &rarr;</a>
+                            </div>
                             <div class="box-body">
-                                <div class="info-section">
-                                    <h3>Re-engineering the Windows Vista Control Panel with pywin32</h3>
-                                    <p>An in-depth look at hooking into legacy control panel applets using python libraries to restore skeuomorphic interfaces.</p>
-                                    <button class="elite-button" style="margin-top: 10px;" onclick="openArchive('vista-cp')">Read Archive</button>
+                                <p style="margin-bottom: 14px;">Content below is pulled live from GitHub so documentation, profile notes, and technical write-ups stay synchronized without hardcoding. Select a live source to inspect:</p>
+                                <div class="filter-group" style="margin-bottom: 14px;">
+                                    <button class="filter-btn active" onclick="loadKnowledgeSource('profile', this)">About Zach (TheShadyRainbow4)</button>
+                                    <button class="filter-btn" onclick="loadKnowledgeSource('pidgewin32', this)">PidgeWin32 Architecture</button>
+                                    <button class="filter-btn" onclick="loadKnowledgeSource('build-auto', this)">Build Automations</button>
+                                    <button class="filter-btn" onclick="loadKnowledgeSource('kb-repo', this)">Custom KB Repo (Live)</button>
                                 </div>
-                                <div class="info-section">
-                                    <h3>Windows 10 LTSC Vista Theme Builds</h3>
-                                    <p>Comprehensive guide to stripping Windows 10 LTSC and applying persistent Aero Glass themes securely.</p>
-                                    <button class="elite-button" style="margin-top: 10px;" onclick="openArchive('ltsc-aero')">Read Archive</button>
-                                </div>
-                                <div class="info-section">
-                                    <h3>Creating Your First Application in Python</h3>
-                                    <p>A foundational guide to Python engineering, from basic indentation to PostgreSQL database integration.</p>
-                                    <button class="elite-button" style="margin-top: 10px;" onclick="openArchive('python-app')">Read Archive</button>
-                                </div>
-                                <div class="info-section" style="border-bottom: none;">
-                                    <h3>A Novice's Guide to the Microsoft Management Console</h3>
-                                    <p>Mastering MMC snap-ins to control local policies and node security without telemetry interference.</p>
-                                    <button class="elite-button" style="margin-top: 10px;" onclick="openArchive('mmc-guide')">Read Archive</button>
-                                </div>
+                                <div id="kb-source-meta" style="font-size: 11px; font-weight: 700; color: #003b75; margin-bottom: 8px;">Loading live markdown from GitHub...</div>
+                                <div id="kb-content" class="kb-rendered">Fetching live documentation...</div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- TAB 7: DIRECT LIAISON (Real Email Relay to support@elitesoftwaretech.cc) -->
                     <div id="page-contact" class="page-view" style="display:none;">
                         <div class="glass-box">
                             <div class="box-header">DIRECT LIAISON PROTOCOL</div>
                             <div class="box-body">
-                                <p style="margin-bottom: 20px;">Establish a secure communication channel with EliteSoftware Co. Limited. All traffic is monitored for system integrity and logged at the Fingerlakes Node.</p>
-                                
-                                <form id="contact-form" onsubmit="handleContact(event)" style="display: flex; flex-direction: column; gap: 15px; background: rgba(0,0,0,0.05); padding: 25px; border-radius: 8px; border: 1px solid #bccad6; box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);">
+                                <p style="margin-bottom: 18px;">Send a direct message to <strong>support@elitesoftwaretech.cc</strong> via our Cloudflare Pages relay function (with automatic mail-client fallback if offline).</p>
+
+                                <form id="contact-form" onsubmit="handleContact(event)" style="display: flex; flex-direction: column; gap: 15px; background: rgba(0,0,0,0.05); padding: 24px; border-radius: 8px; border: 1px solid #bccad6; box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);">
                                     <div style="display: flex; gap: 15px;">
                                         <div style="flex: 1;">
-                                            <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">OPERATOR DESIGNATION [NAME]</label>
-                                            <input type="text" id="contact-name" placeholder="EX: Z. WHITEMAN" required style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; background: #fff; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
+                                            <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">YOUR NAME</label>
+                                            <input type="text" id="contact-name" placeholder="Your Name" required style="width: 100%; padding: 11px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; background: #fff;">
                                         </div>
                                         <div style="flex: 1;">
-                                            <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">RELAY ADDRESS [EMAIL]</label>
-                                            <input type="email" id="contact-email" placeholder="EX: OPS@DOMAIN.CC" required style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; background: #fff; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
+                                            <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">REPLY EMAIL ADDRESS</label>
+                                            <input type="email" id="contact-email" placeholder="you@example.com" required style="width: 100%; padding: 11px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; background: #fff;">
                                         </div>
                                     </div>
-                                    
+
                                     <div>
-                                        <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">UPLINK PRIORITY</label>
-                                        <select id="contact-priority" style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; background: #fff; cursor: pointer;">
-                                            <option value="routine">ROUTINE - STANDARD QUEUE</option>
-                                            <option value="urgent">URGENT - EXPEDITED PROCESSING</option>
-                                            <option value="critical">CRITICAL - IMMEDIATE NODE ATTENTION</option>
+                                        <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">MESSAGE PRIORITY</label>
+                                        <select id="contact-priority" style="width: 100%; padding: 11px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; background: #fff; cursor: pointer;">
+                                            <option value="routine">ROUTINE - General Inquiry / Feedback</option>
+                                            <option value="urgent">URGENT - Bug Report / Broken Release</option>
+                                            <option value="critical">CRITICAL - Security or Infrastructure Issue</option>
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">PAYLOAD DATA [TRANSMISSION]</label>
-                                        <textarea id="contact-message" placeholder="ENTER CORE SIGNAL CONTENT..." required style="width: 100%; height: 120px; padding: 12px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 700; resize: vertical; background: #fff; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);"></textarea>
+                                        <label style="font-size: 10px; font-weight: 800; color: #003b75; display: block; margin-bottom: 5px;">MESSAGE BODY</label>
+                                        <textarea id="contact-message" placeholder="Write your message to support@elitesoftwaretech.cc..." required style="width: 100%; height: 120px; padding: 11px; border-radius: 4px; border: 1px solid #99aac0; font-family: 'Segoe UI'; font-weight: 600; resize: vertical; background: #fff;"></textarea>
                                     </div>
-                                    
-                                    <button type="submit" id="contact-submit-btn" class="elite-button" style="align-self: flex-start; min-width: 220px;">
-                                        COMMENCE UPLINK
-                                    </button>
+
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <button type="submit" id="contact-submit-btn" class="elite-button" style="min-width: 210px;">
+                                            Send Email to Support
+                                        </button>
+                                        <a href="mailto:support@elitesoftwaretech.cc" class="project-action-btn repo">Open Default Mail App</a>
+                                    </div>
+                                    <div id="contact-status" style="font-size: 12px; font-weight: 700; color: #003b75;"></div>
                                 </form>
 
-                                <div style="margin-top: 30px;">
+                                <div style="margin-top: 24px;">
                                     <div class="terminal-box">
-                                        <strong style="color:white;">Tier 1: General Operations & Support</strong>
+                                        <strong style="color:white;">General Support &amp; Inquiries</strong>
                                         <code>support@elitesoftwaretech.cc</code>
                                     </div>
 
-                                    <div class="terminal-box" style="border-left: 5px solid #2980b9; margin-top: 15px;">
-                                        <strong style="color:white;">Tier 2: Direct Liaison (Zachary Whiteman)</strong>
+                                    <div class="terminal-box" style="border-left: 5px solid #2980b9; margin-top: 12px;">
+                                        <strong style="color:white;">Direct Liaison (Zachary Whiteman)</strong>
                                         <code>zachary.whiteman@elitesoftwaretech.cc</code>
                                     </div>
                                 </div>
@@ -705,7 +981,7 @@
 
                 <!-- Right Sidebar Column -->
                 <aside class="sidebar-column">
-                    
+
                     <div class="sidebar-module">
                         <h4><img src="https://img.icons8.com/fluency/48/clock--v1.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> System Time</h4>
                         <div id="system-clock" style="font-family: 'Consolas', monospace; font-size: 24px; color: #003b75; text-align: center; font-weight: 700; text-shadow: 0 1px 0 #fff; background: rgba(255,255,255,0.5); border-radius: 4px; border: 1px solid #99aac0; padding: 5px 0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);">
@@ -714,52 +990,51 @@
                     </div>
 
                     <div class="sidebar-module">
-                        <h4><img src="https://img.icons8.com/fluency/48/radar.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Latest Telemetry</h4>
-                        <ul style="list-style: none; font-size: 11px; line-height: 1.4;">
-                            <li style="margin-bottom: 8px;"><strong>APR 03, 2026:</strong> Build 6.0.0 deployed. Aero Refinement Engine active.</li>
-                            <li style="margin-bottom: 8px;"><strong>MAR 28, 2026:</strong> Aerexplorer v2.1 Alpha stable on 23H2 builds.</li>
-                            <li><strong>MAR 15, 2026:</strong> PowerShell automation suite enters final testing.</li>
+                        <h4><img src="https://img.icons8.com/fluency/48/radar.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Live GitHub Activity</h4>
+                        <ul id="live-telemetry-feed" style="list-style: none; font-size: 11px; line-height: 1.5; color: #1d354d;">
+                            <li>Fetching live GitHub commits &amp; releases...</li>
                         </ul>
                     </div>
 
                     <div class="sidebar-module">
                         <h4><img src="https://img.icons8.com/fluency/48/domain.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Global Conduits</h4>
-                        <a href="https://pidgewin32.elitesoftwaretech.cc/" class="conduit-link" target="_blank" style="background: linear-gradient(to bottom, #e6f4ff, #c5e2ff); border-color: #3a89d6;">
+                        <a href="https://pidgewin32.elitesoftwaretech.cc/" class="conduit-link" target="_blank" rel="noopener" style="background: linear-gradient(to bottom, #e6f4ff, #c5e2ff); border-color: #3a89d6;">
                             <img src="https://img.icons8.com/fluency/48/settings.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> PidgeWin32 Mod Manager
                         </a>
-                        <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" class="conduit-link" target="_blank" style="background: linear-gradient(to bottom, #ffffff, #e6fff8);">
+                        <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" class="conduit-link" target="_blank" rel="noopener" style="background: linear-gradient(to bottom, #ffffff, #e6fff8);">
                             <img src="https://img.icons8.com/fluency/48/modules.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> PidgeWin32 Mod Gallery
                         </a>
-                        <a href="https://mail.elitesoftwaretech.cc/" class="conduit-link" target="_blank" style="background: linear-gradient(to bottom, #ffffff, #e0f0ff); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                            <img src="https://img.icons8.com/fluency/48/mail.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Secure Webmail Portal
+                        <a href="https://coming-soon.elitesoftwaretech.cc/" class="conduit-link" target="_blank" rel="noopener">
+                            <img src="https://img.icons8.com/fluency/48/security-shield-green.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Staging Gateway
                         </a>
-                        <a href="https://github.com/TheShadyRainbow4" class="conduit-link" target="_blank">
-                            <img src="https://img.icons8.com/fluency/48/github.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> GitHub Repository
+                        <a href="https://github.com/TheShadyRainbow4" class="conduit-link" target="_blank" rel="noopener">
+                            <img src="https://img.icons8.com/fluency/48/github.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> GitHub (TheShadyRainbow4)
                         </a>
-                        <a href="https://www.patreon.com/cw/EliteSoftwareCo" class="conduit-link" target="_blank">
-                            <img src="https://img.icons8.com/fluency/48/patreon.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Patreon Support
+                        <a href="https://github.com/EliteSoftwareTech-cc" class="conduit-link" target="_blank" rel="noopener">
+                            <img src="https://img.icons8.com/fluency/48/organization.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> GitHub Org (EliteSoftwareTech-cc)
                         </a>
-                        <a href="https://www.youtube.com/channel/UCkCJHfNFwSAJ2fu4kXmEaUg" class="conduit-link" target="_blank">
+                        <a href="https://www.youtube.com/channel/UCkCJHfNFwSAJ2fu4kXmEaUg" class="conduit-link" target="_blank" rel="noopener">
                             <img src="https://img.icons8.com/fluency/48/youtube-play.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> YouTube Channel
                         </a>
                     </div>
 
                     <div class="sidebar-module">
-                        <h4><img src="https://img.icons8.com/fluency/48/settings.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Workstation Profile</h4>
-                        <div class="tech-tag">PowerShell 7.4</div>
-                        <div class="tech-tag">Node.js 20</div>
-                        <div class="tech-tag">.NET 8.0</div>
-                        <div class="tech-tag">Windhawk</div>
-                        <div class="tech-tag">Win32 API</div>
-                        <div class="tech-tag">AutoHotkey v2</div>
+                        <h4><img src="https://img.icons8.com/fluency/48/settings.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Core Tech Stack</h4>
+                        <div class="tech-tag">C++ / Win32 API</div>
+                        <div class="tech-tag">Clang / LLVM</div>
+                        <div class="tech-tag">PowerShell 7</div>
+                        <div class="tech-tag">C# / .NET</div>
+                        <div class="tech-tag">Kotlin / Android</div>
+                        <div class="tech-tag">TypeScript / Pages</div>
                     </div>
 
-                    <div class="sidebar-module" style="background: rgba(255,255,255,0.4); border-color: #3a6ea5; box-shadow: inset 0 0 10px rgba(255,255,255,0.8);">
-                        <h4><img src="https://img.icons8.com/fluency/48/map-pin.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Node Status</h4>
-                        <p style="font-size: 12px;"><strong>Lead:</strong> Zachary Whiteman</p>
-                        <p id="sidebar-region-text" style="font-size: 12px;"><strong>Region:</strong> Fingerlakes Region, Upstate New York</p>
-                        <p style="font-size: 11px; margin-top: 5px; color: #003366; font-style: italic;">
-                            "EliteSoftware Co. Limited"
+                    <div class="sidebar-module" style="background: rgba(255,255,255,0.5); border-color: #3a6ea5; box-shadow: inset 0 0 10px rgba(255,255,255,0.8);">
+                        <h4><img src="https://img.icons8.com/fluency/48/user-male-circle.png" width="20" style="vertical-align: middle; margin-right: 5px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Developer Profile</h4>
+                        <p style="font-size: 12px;"><strong>Developer:</strong> Zachary (TheShadyRainbow4)</p>
+                        <p style="font-size: 12px;"><strong>Location:</strong> South Carolina, USA</p>
+                        <p style="font-size: 12px;"><strong>Focus:</strong> CS Student &bull; Vista/Aero &amp; Win32</p>
+                        <p id="sidebar-gh-stats" style="font-size: 11px; margin-top: 6px; color: #003b75; font-weight: 700;">
+                            Syncing live GitHub profile metrics...
                         </p>
                     </div>
 
@@ -769,10 +1044,10 @@
 
             <!-- Corporate Footer -->
             <footer>
-                <div style="max-width: 1800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                    <div>Copyright &copy; 2024-2026 EliteSoftware Co. Limited.</div>
+                <div style="max-width: 1500px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; width: 100%;">
+                    <div>Copyright &copy; 2024-2026 EliteSoftwareTech Co. &bull; Maintained by Zachary (TheShadyRainbow4).</div>
                     <div style="font-weight: 700; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">
-                        EliteSoftware Site v6.0.0.0 - Created by: Zachary Whiteman & Google Gemini Ai. 2026-04-03 - 08:35:00
+                        EliteSoftwareTech.cc v7.0.0.0 &bull; Cloudflare Pages Edge
                     </div>
                 </div>
             </footer>
@@ -784,49 +1059,280 @@
         <div class="glass-box" style="width: 800px; max-width: 90%; max-height: 85vh; display: flex; flex-direction: column; margin: 0;">
             <div class="box-header" id="modal-title">System Message</div>
             <div class="box-body" id="modal-content-area" style="padding: 25px; overflow-y: auto; flex-grow: 1; background: #fff;">
-                <p id="modal-message" style="font-size: 16px;">Process completed successfully.</p>
+                <p id="modal-message" style="font-size: 15px;">Process completed.</p>
             </div>
             <div style="padding: 15px; background: #f0f5fa; border-top: 1px solid #ccc; display: flex; justify-content: flex-end; gap: 10px;">
-                <button class="elite-button" onclick="closeModal()">Close Console</button>
+                <button class="elite-button" onclick="closeModal()">Close Window</button>
             </div>
         </div>
     </div>
 
     <script>
-        const archiveData = {
-            'vista-cp': {
-                title: 'Archive: Re-engineering the Windows Vista Control Panel',
-                content: `<h3>Skeuomorphic Hooking Analysis</h3><p>Research into <strong>pywin32</strong> and <strong>ctypes</strong> has revealed a method to invoke legacy CPL files directly while bypassing modern Immersive Control Panel redirections. By surgically targeting <code>shell32.dll</code>, we can restore the classic applet behaviors...</p><p>Technical Stack: Python 3.11, Win32 API, DLL Injection. [DOC LOADED FROM LOCAL ARCHIVE]`
+        /* --- Project Gallery Catalog (Only completed/live portals; new tiles added as each repo completes) --- */
+        const PROJECT_GALLERY = [
+            {
+                name: "PidgeWin32 Native Mod Manager",
+                category: "live",
+                stack: "C++ / Clang / Win32",
+                status: "live",
+                statusLabel: "LIVE PORTAL",
+                summary: "Sovereign Win32 runtime hooking suite & local C++/Clang mod compiler supporting both native .pw32.cpp and legacy .wh.cpp Windhawk mods.",
+                siteUrl: "https://pidgewin32.elitesoftwaretech.cc/",
+                repoUrl: "https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo",
+                downloadUrl: "https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/releases/latest/download/PidgeWin32-Latest-win64.zip",
+                downloadLabel: "Download Latest (v1.0.8.1)"
             },
-            'ltsc-aero': {
-                title: 'Archive: Windows 10 LTSC Vista Theme Builds',
-                content: `<h3>Hardening & Aesthetics</h3><p>This document outlines the protocol for stripping <strong>Windows 10 IOT LTSC</strong> of its modern telemetry layers and implementing <strong>SecureUXTheme</strong>. By using <strong>Windhawk</strong> modules for taskbar transparency, we can replicate the 2008 workstation feel without compromising kernel integrity.</p>`
+            {
+                name: "PidgeWin32 Mod Gallery",
+                category: "live",
+                stack: "TypeScript / Catalog",
+                status: "live",
+                statusLabel: "LIVE PORTAL",
+                summary: "Independent online mod index and catalog frontend serving native PidgeWin32 and compatible Win32 customization mods.",
+                siteUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
+                repoUrl: "https://github.com/TheShadyRainbow4/Mods_Gallery-and_Page",
+                downloadUrl: "https://pidgewin32-gallery.elitesoftwaretech.cc/",
+                downloadLabel: "Open Live Gallery"
+            }
+        ];
+
+        let currentGalleryFilter = "all";
+
+        function filterGallery(cat, btn) {
+            currentGalleryFilter = cat;
+            document.querySelectorAll('.filter-group .filter-btn').forEach(b => {
+                if (b.getAttribute('onclick')?.includes('filterGallery')) b.classList.remove('active');
+            });
+            if (btn) btn.classList.add('active');
+            renderProjectGallery();
+        }
+
+        function renderProjectGallery() {
+            const container = document.getElementById('project-gallery-list');
+            const q = (document.getElementById('gallery-search')?.value || "").toLowerCase().trim();
+            const filtered = PROJECT_GALLERY.filter(item => {
+                const catOk = currentGalleryFilter === "all" || item.category === currentGalleryFilter;
+                const qOk = !q || item.name.toLowerCase().includes(q) || item.stack.toLowerCase().includes(q) || item.summary.toLowerCase().includes(q);
+                return catOk && qOk;
+            });
+
+            document.getElementById('gallery-count-badge').textContent = `${filtered.length} LIVE`;
+
+            container.innerHTML = filtered.map(item => `
+                <div class="glass-box">
+                    <div class="box-header">
+                        <span>${item.name}</span>
+                        <span class="status-badge ${item.status}">${item.statusLabel} &bull; ${item.stack}</span>
+                    </div>
+                    <div class="box-body">
+                        <p style="font-size: 13px; color: #1b2f44;">${item.summary}</p>
+                        <div class="project-action-row">
+                            <a href="${item.siteUrl}" target="_blank" rel="noopener" class="project-action-btn primary">Dedicated Page</a>
+                            <a href="${item.repoUrl}" target="_blank" rel="noopener" class="project-action-btn repo">View GitHub Repo</a>
+                            <a href="${item.downloadUrl}" target="_blank" rel="noopener" class="project-action-btn ${item.status === 'staging' ? 'pending' : 'download'}">${item.downloadLabel}</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* --- Live GitHub Counters & Activity Feeds --- */
+        async function loadGitHubTelemetry() {
+            const counterEl = document.getElementById('public-repo-counter');
+            const statsEl = document.getElementById('sidebar-gh-stats');
+            const feedEl = document.getElementById('live-telemetry-feed');
+
+            try {
+                const [uRes, oRes] = await Promise.all([
+                    fetch('https://api.github.com/users/TheShadyRainbow4'),
+                    fetch('https://api.github.com/orgs/EliteSoftwareTech-cc')
+                ]);
+                if (uRes.ok && oRes.ok) {
+                    const user = await uRes.json();
+                    const org = await oRes.json();
+                    const total = (user.public_repos || 0) + (org.public_repos || 0);
+                    counterEl.textContent = `PUBLIC REPOS: ${total} (${user.public_repos} + ${org.public_repos})`;
+                    statsEl.textContent = `Public Repos: ${user.public_repos} Personal + ${org.public_repos} Org • Followers: ${user.followers || 0}`;
+                } else {
+                    counterEl.textContent = 'PUBLIC REPOS: 79+';
+                }
+            } catch (e) {
+                counterEl.textContent = 'PUBLIC REPOS: OFFLINE';
+                statsEl.textContent = 'GitHub API unavailable from current client.';
+            }
+
+            try {
+                const evRes = await fetch('https://api.github.com/users/TheShadyRainbow4/events/public?per_page=5');
+                if (evRes.ok) {
+                    const events = await evRes.json();
+                    if (events.length) {
+                        feedEl.innerHTML = events.map(ev => {
+                            const date = (ev.created_at || "").slice(0, 10);
+                            const repoName = (ev.repo?.name || "").replace("TheShadyRainbow4/", "");
+                            const typeLabel = ev.type.replace("Event", "");
+                            return `<li style="margin-bottom:7px;"><strong>${date}:</strong> ${typeLabel} on <a href="https://github.com/${ev.repo?.name}" target="_blank" rel="noopener" style="color:#003b75;font-weight:700;">${repoName}</a></li>`;
+                        }).join('');
+                        return;
+                    }
+                }
+                feedEl.innerHTML = '<li>No recent public GitHub events returned.</li>';
+            } catch (e) {
+                feedEl.innerHTML = '<li>Unable to reach GitHub public events API.</li>';
+            }
+        }
+
+        let radarLoaded = false;
+        async function loadGitHubRadar(force = false) {
+            if (radarLoaded && !force) return;
+            const summary = document.getElementById('github-radar-summary');
+            const grid = document.getElementById('github-radar-grid');
+            summary.textContent = 'Fetching live repositories from GitHub...';
+
+            try {
+                const [uReposRes, oReposRes] = await Promise.all([
+                    fetch('https://api.github.com/users/TheShadyRainbow4/repos?sort=pushed&per_page=12'),
+                    fetch('https://api.github.com/orgs/EliteSoftwareTech-cc/repos?sort=pushed&per_page=8')
+                ]);
+                const uRepos = uReposRes.ok ? await uReposRes.json() : [];
+                const oRepos = oReposRes.ok ? await oReposRes.json() : [];
+                const combined = [...oRepos, ...uRepos]
+                    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+                    .slice(0, 12);
+
+                summary.textContent = `Showing ${combined.length} most recently pushed public repositories across TheShadyRainbow4 & EliteSoftwareTech-cc.`;
+                grid.innerHTML = combined.map(r => `
+                    <div class="radar-card">
+                        <h4>${r.name}</h4>
+                        <p>${(r.description && !r.description.includes('Migrated automatically')) ? r.description : 'Public repository under ' + r.owner.login}</p>
+                        <div style="font-size:11px; color:#3d5670; margin-bottom:8px;">
+                            <strong>Lang:</strong> ${r.language || 'Mixed/Docs'} &bull; <strong>Pushed:</strong> ${(r.pushed_at || '').slice(0,10)}
+                        </div>
+                        <a href="${r.html_url}" target="_blank" rel="noopener" class="project-action-btn repo" style="padding:5px 10px; font-size:11px;">Open on GitHub &rarr;</a>
+                    </div>
+                `).join('');
+                radarLoaded = true;
+            } catch (e) {
+                summary.textContent = 'Failed to fetch GitHub API (rate limit or offline).';
+            }
+        }
+
+        /* --- Live Endpoint Reachability Monitor (System Console) --- */
+        const MONITOR_TARGETS = [
+            { name: "Main Portal", url: "https://main.elitesoftwaretech.cc/favicon.ico" },
+            { name: "PidgeWin32 Portal", url: "https://pidgewin32.elitesoftwaretech.cc/favicon.ico" },
+            { name: "PidgeWin32 Gallery", url: "https://pidgewin32-gallery.elitesoftwaretech.cc/" },
+            { name: "Coming Soon Gateway", url: "https://coming-soon.elitesoftwaretech.cc/" },
+            { name: "GitHub Public API", url: "https://api.github.com/" }
+        ];
+
+        async function runEndpointMonitor() {
+            const grid = document.getElementById('endpoint-monitor-grid');
+            grid.innerHTML = MONITOR_TARGETS.map((t, i) => `
+                <div class="radar-card" id="mon-${i}">
+                    <h4>${t.name}</h4>
+                    <p style="font-family:Consolas,monospace; font-size:11px;">${t.url}</p>
+                    <div class="mon-status" style="font-weight:800; color:#003b75;">Probing...</div>
+                </div>
+            `).join('');
+
+            await Promise.all(MONITOR_TARGETS.map(async (t, i) => {
+                const start = performance.now();
+                const el = document.querySelector(`#mon-${i} .mon-status`);
+                try {
+                    await fetch(t.url + (t.url.includes('?') ? '&' : '?') + 't=' + Date.now(), { mode: 'no-cors', cache: 'no-store' });
+                    const ms = Math.round(performance.now() - start);
+                    el.style.color = '#1e8a4c';
+                    el.textContent = `ONLINE (${ms} ms)`;
+                } catch (e) {
+                    el.style.color = '#c0392b';
+                    el.textContent = 'UNREACHABLE';
+                }
+            }));
+        }
+
+        /* --- Live Knowledge Base (GitHub-Backed Markdown Viewer) --- */
+        const KB_SOURCES = {
+            'profile': {
+                label: 'TheShadyRainbow4/TheShadyRainbow4 (Profile README)',
+                raw: 'https://raw.githubusercontent.com/TheShadyRainbow4/TheShadyRainbow4/main/README.md',
+                fallback: 'https://github.com/TheShadyRainbow4'
             },
-            'python-app': {
-                title: 'Archive: Creating Your First Application in Python',
-                content: `<h3>Foundational Engineering Protocol</h3><p>Python was developed for the sole purpose of simplifying the process of learning a programming language. In this article, we build a Python Application using <strong>PostgreSQL</strong> integration.</p><pre>import psycopg2\ndb_conn = psycopg2.connect("host=localhost dbname=test_db user=postgres")</pre><p>This archive details the complete pipeline from indentation standards to database commit logic.</p>`
+            'pidgewin32': {
+                label: 'TheShadyRainbow4/PidgeWin32_Parent-Repo (README)',
+                raw: 'https://raw.githubusercontent.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/main/README.md',
+                fallback: 'https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo'
             },
-            'mmc-guide': {
-                title: 'Archive: Novice Guide to Microsoft Management Console',
-                content: `<h3>System Control via Snap-ins</h3><p>The <strong>MMC</strong> remains the core of Windows system administration. This guide masters the use of <code>gpedit.msc</code> and <code>services.msc</code> to ensure absolute node purity. By disabling unnecessary services and locking down local security policies, we achieve maximum workstation performance.</p>`
+            'build-auto': {
+                label: 'EliteSoftwareTech-cc/EliteSoftware_Build-Automations (README)',
+                raw: 'https://raw.githubusercontent.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/main/README.md',
+                fallback: 'https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations'
+            },
+            'kb-repo': {
+                label: 'EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase (Custom KB Repo)',
+                raw: 'https://raw.githubusercontent.com/EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase/main/README.md',
+                fallback: 'https://github.com/EliteSoftwareTech-cc'
             }
         };
 
-        function openArchive(id) {
-            const data = archiveData[id];
-            if(!data) return;
-            document.getElementById('modal-title').textContent = data.title;
-            document.getElementById('modal-content-area').innerHTML = `<div class="info-section">${data.content}</div>`;
-            document.getElementById('elite-modal').style.display = 'flex';
+        function escapeHtml(str) {
+            return str.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
         }
 
+        function simpleMarkdownToHtml(md) {
+            const lines = md.split(/\r?\n/);
+            let html = '';
+            let inCode = false;
+            for (const line of lines) {
+                if (line.trim().startsWith('```')) {
+                    html += inCode ? '</pre>' : '<pre>';
+                    inCode = !inCode;
+                    continue;
+                }
+                if (inCode) {
+                    html += escapeHtml(line) + '\n';
+                    continue;
+                }
+                if (line.startsWith('### ')) html += `<h3>${escapeHtml(line.slice(4))}</h3>`;
+                else if (line.startsWith('## ')) html += `<h2>${escapeHtml(line.slice(3))}</h2>`;
+                else if (line.startsWith('# ')) html += `<h1>${escapeHtml(line.slice(2))}</h1>`;
+                else if (line.trim().startsWith('- ') || line.trim().startsWith('* ')) html += `<p>&bull; ${escapeHtml(line.trim().slice(2))}</p>`;
+                else if (line.trim()) html += `<p>${escapeHtml(line)}</p>`;
+            }
+            if (inCode) html += '</pre>';
+            return html;
+        }
+
+        async function loadKnowledgeSource(key, btn) {
+            if (btn) {
+                btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            const src = KB_SOURCES[key];
+            const meta = document.getElementById('kb-source-meta');
+            const out = document.getElementById('kb-content');
+            meta.textContent = `Fetching ${src.label}...`;
+            out.innerHTML = 'Loading live content from GitHub...';
+
+            try {
+                const res = await fetch(src.raw);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const text = await res.text();
+                meta.innerHTML = `Live Source: <a href="${src.fallback}" target="_blank" rel="noopener">${src.label}</a>`;
+                out.innerHTML = simpleMarkdownToHtml(text);
+            } catch (e) {
+                meta.textContent = `Source not live yet (${e.message})`;
+                out.innerHTML = `<p>Could not load <code>${escapeHtml(src.raw)}</code> (${escapeHtml(e.message)}).</p><p style="margin-top:8px;">When the dedicated Knowledge Base repository is created, this viewer renders its markdown directly from GitHub without hardcoding articles.</p>`;
+            }
+        }
+
+        /* --- System Clock & Domain Status --- */
         function updateClock() {
             const now = new Date();
-            const timeStr = now.getHours().toString().padStart(2, '0') + ':' + 
-                          now.getMinutes().toString().padStart(2, '0') + ':' + 
-                          now.getSeconds().toString().padStart(2, '0');
+            const timeStr = now.getHours().toString().padStart(2, '0') + ':' +
+                now.getMinutes().toString().padStart(2, '0') + ':' +
+                now.getSeconds().toString().padStart(2, '0');
             const clockEl = document.getElementById('system-clock');
-            if(clockEl) clockEl.textContent = timeStr;
+            if (clockEl) clockEl.textContent = timeStr;
         }
         setInterval(updateClock, 1000);
         updateClock();
@@ -834,8 +1340,6 @@
         function checkDomainStatus() {
             const statusText = document.getElementById('status-text');
             const statusDot = document.getElementById('status-dot');
-            
-            // Image-based 'ping' is more reliable for root domains without CORS headers
             const pingImg = new Image();
             const timeout = setTimeout(() => {
                 statusText.textContent = 'CORE SYSTEMS: OFFLINE';
@@ -847,125 +1351,90 @@
             pingImg.onload = pingImg.onerror = function() {
                 clearTimeout(timeout);
                 statusText.textContent = 'CORE SYSTEMS: NOMINAL';
-                statusText.parentElement.style.color = '#2ecc71';
+                statusText.parentElement.style.color = '#1f8a4d';
                 statusDot.style.background = '#2ecc71';
                 statusDot.style.boxShadow = '0 0 8px #2ecc71';
             };
-            // Appending timestamp to avoid cache
             pingImg.src = "https://elitesoftwaretech.cc/favicon.ico?t=" + Date.now();
         }
-        setInterval(checkDomainStatus, 60000); 
+        setInterval(checkDomainStatus, 60000);
         checkDomainStatus();
 
+        /* --- Real Email Relay (Cloudflare Pages Function + mailto fallback) --- */
         async function handleContact(e) {
             e.preventDefault();
             const btn = document.getElementById('contact-submit-btn');
+            const statusEl = document.getElementById('contact-status');
             const originalText = btn.textContent;
-            
-            // Visual Sending State
+
             btn.disabled = true;
             btn.style.opacity = '0.7';
-            btn.textContent = "UPLINKING SIGNAL...";
+            btn.textContent = "SENDING EMAIL...";
+            statusEl.textContent = "";
 
-            // Gather Data
             const payload = {
-                operator: document.getElementById('contact-name').value,
-                relay: document.getElementById('contact-email').value,
+                operator: document.getElementById('contact-name').value.trim(),
+                relay: document.getElementById('contact-email').value.trim(),
                 priority: document.getElementById('contact-priority').value,
-                content: document.getElementById('contact-message').value,
-                timestamp: new Date().toISOString()
+                content: document.getElementById('contact-message').value.trim()
             };
 
-            console.log("%c [LIAISON UPLINK INITIATED] ", "color: white; background: #2980b9; font-weight: bold;");
-            console.log("Payload:", payload);
+            try {
+                const resp = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await resp.json().catch(() => ({}));
 
-            // Simulation of network transit
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            // Finalizing UI
-            document.getElementById('modal-title').textContent = "Transmission Successful";
-            document.getElementById('modal-message').textContent = `Signal from [${payload.operator}] has been encrypted and queued for processing at the Fingerlakes Node. Zachary Whiteman will be notified via Tier 2 Liaison protocol.`;
-            document.getElementById('elite-modal').style.display = 'flex';
-            
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            btn.textContent = originalText;
-            e.target.reset();
+                if (resp.ok && data.ok) {
+                    document.getElementById('modal-title').textContent = "Email Sent to Support";
+                    document.getElementById('modal-message').textContent = `Your message from ${payload.operator} (${payload.relay}) has been delivered to support@elitesoftwaretech.cc.`;
+                    document.getElementById('elite-modal').style.display = 'flex';
+                    statusEl.style.color = '#1e8a4c';
+                    statusEl.textContent = 'Delivered to support@elitesoftwaretech.cc.';
+                    e.target.reset();
+                } else {
+                    throw new Error(data.error || `HTTP ${resp.status}`);
+                }
+            } catch (err) {
+                statusEl.style.color = '#b35400';
+                statusEl.textContent = `Web relay unavailable (${err.message}). Opening your default mail app addressed to support@elitesoftwaretech.cc...`;
+                const subj = encodeURIComponent(`[${payload.priority.toUpperCase()}] EliteSoftwareTech.cc Message from ${payload.operator}`);
+                const body = encodeURIComponent(`From: ${payload.operator} <${payload.relay}>\n\n${payload.content}`);
+                window.location.href = `mailto:support@elitesoftwaretech.cc?subject=${subj}&body=${body}`;
+            } finally {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                btn.textContent = originalText;
+            }
         }
 
+        /* --- Navigation --- */
         function showPage(pageId) {
             document.querySelectorAll('.page-view').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             const target = document.getElementById('page-' + pageId);
-            if(target) {
+            if (target) {
                 target.style.display = 'block';
                 target.style.opacity = '0';
                 setTimeout(() => { target.style.opacity = '1'; target.style.transition = 'opacity 0.2s ease'; }, 10);
             }
             const btn = document.querySelector(`[onclick="showPage('${pageId}')"]`);
-            if(btn) btn.classList.add('active');
-            window.scrollTo(0,0);
+            if (btn) btn.classList.add('active');
+            window.scrollTo(0, 0);
+
+            if (pageId === 'radar') loadGitHubRadar();
+            if (pageId === 'projects') renderProjectGallery();
+            if (pageId === 'console') runEndpointMonitor();
+            if (pageId === 'blogs') loadKnowledgeSource('profile');
         }
 
         function closeModal() {
             document.getElementById('elite-modal').style.display = 'none';
         }
 
-        function openSystemModal() {
-            const modal = document.getElementById('elite-modal');
-            const content = document.getElementById('modal-content-area');
-            const title = document.getElementById('modal-title');
-            
-            modal.style.display = 'flex';
-            title.textContent = "SYSTEM PROBE INITIATED";
-            content.innerHTML = `
-                <p style="margin-bottom: 10px; font-weight: 800;">Executing deep-layer hardware handshake...</p>
-                <div style="width: 100%; height: 20px; background: #ddd; border-radius: 4px; overflow: hidden; border: 1px solid #aaa; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);">
-                    <div id="probe-progress" style="width: 0%; height: 100%; background: linear-gradient(to bottom, #ff00ff, #990099); transition: width 0.1s linear;"></div>
-                </div>
-                <p id="probe-status" style="font-size: 11px; margin-top: 10px; color: #666; font-family: monospace;">[WAITING]</p>
-            `;
-
-            let p = 0;
-            const statusMsgs = ["ALLOCATING BUFFERS", "BYPASSING KERNEL HOOKS", "READING CMOS", "VERIFYING PURE STATE", "HANDSHAKE COMPLETE"];
-            const interval = setInterval(() => {
-                p += Math.random() * 5;
-                if(p >= 100) {
-                    p = 100;
-                    clearInterval(interval);
-                    document.getElementById('probe-status').textContent = "[SUCCESS] NODE SECURED.";
-                } else {
-                    document.getElementById('probe-progress').style.width = p + '%';
-                    document.getElementById('probe-status').textContent = "[" + statusMsgs[Math.floor(p/25)] + "]";
-                }
-            }, 50);
-        }
-
-        function runDiagnostics() {
-            const log = document.getElementById('diagnostics-log');
-            log.textContent = "[INIT] FETCHING REAL-TIME NODE TELEMETRY...\n";
-            
-            const telemetry = [
-                `[SCAN] OS/BROWSER: ${navigator.userAgent.split(') ')[0].split('(')[1]}`,
-                `[SCAN] RESOLUTION: ${screen.width}x${screen.height} @ ${screen.colorDepth}-bit`,
-                `[SCAN] LOGICAL CORES: ${navigator.hardwareConcurrency || 'UNKNOWN'}`,
-                `[SCAN] DEVICE MEMORY: ~${navigator.deviceMemory || 'UNKNOWN'} GB`,
-                `[SCAN] NETWORK TYPE: ${navigator.connection ? navigator.connection.effectiveType.toUpperCase() : 'ETHERNET/STATIONARY'}`,
-                `[SCAN] LANG PREFERENCE: ${navigator.language}`,
-                `[SUCCESS] TELEMETRY CAPTURED. NODE IS PURITY-COMPLIANT.`
-            ];
-
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < telemetry.length) {
-                    log.textContent += telemetry[i] + "\n";
-                    i++;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 300);
-        }
-
+        /* --- Speed Test (Preserved) --- */
         async function startSpeedTest() {
             const btn = document.getElementById('start-speedtest-btn');
             const progressContainer = document.getElementById('speed-progress-container');
@@ -979,74 +1448,58 @@
             btn.style.opacity = '0.5';
             progressContainer.style.display = 'block';
             progressBar.style.width = '0%';
-            
-            // 1. Latency (Ping) - High Precision
-            statusLabel.textContent = "Probing Latency (Fingerlakes Node -> Main Domain)...";
+
+            statusLabel.textContent = "Probing Latency (Client -> Main Domain)...";
             let pings = [];
-            for(let i=0; i<5; i++) {
+            for (let i = 0; i < 5; i++) {
                 const start = performance.now();
                 try {
-                    // Cache busting is critical for accurate ping
-                    await fetch('https://elitesoftwaretech.cc/?t=' + Date.now(), { 
-                        mode: 'no-cors', 
+                    await fetch('https://elitesoftwaretech.cc/?t=' + Date.now(), {
+                        mode: 'no-cors',
                         cache: 'no-store',
                         referrerPolicy: 'no-referrer'
                     });
                     pings.push(performance.now() - start);
-                } catch(e) {
-                    console.error("Ping Probe Failed:", e);
-                }
-                // Subtle delay between pings to avoid flood protection
+                } catch (e) {}
                 await new Promise(r => setTimeout(r, 100));
             }
-            const avgPing = pings.length ? Math.round(pings.reduce((a,b) => a+b)/pings.length) : 'TIMEOUT';
+            const avgPing = pings.length ? Math.round(pings.reduce((a, b) => a + b) / pings.length) : 'TIMEOUT';
             pingDisplay.textContent = avgPing + " ms";
             progressBar.style.width = '20%';
 
-            // 2. Download Speed - 10MB Payload
             statusLabel.textContent = "Measuring Download Throughput (10MB Data Burst)...";
-            const downloadUrl = "https://speed.cloudflare.com/__down?bytes=10485760"; 
+            const downloadUrl = "https://speed.cloudflare.com/__down?bytes=10485760";
             const startTime = performance.now();
             try {
                 const response = await fetch(downloadUrl, { cache: 'no-store' });
                 const reader = response.body.getReader();
                 let loaded = 0;
-                const total = 10485760; // 10MB exact
-                
-                while(true) {
-                    const {done, value} = await reader.read();
+                const total = 10485760;
+
+                while (true) {
+                    const { done, value } = await reader.read();
                     if (done) break;
                     loaded += value.length;
-                    let p = Math.min(20 + (loaded/total * 60), 80);
-                    progressBar.style.width = p + '%';
+                    progressBar.style.width = Math.min(20 + (loaded / total * 60), 80) + '%';
                 }
                 const duration = (performance.now() - startTime) / 1000;
-                // Megabits per second (standard decimal Mbps = bits / 1,000,000)
                 const mbps = ((loaded * 8) / 1000000) / duration;
                 downloadDisplay.textContent = mbps.toFixed(2) + " Mbps";
-            } catch(e) {
+            } catch (e) {
                 downloadDisplay.textContent = "ERR";
-                console.error("Download Probe Failed:", e);
             }
 
-            // 3. Upload Speed - 2MB Payload
             statusLabel.textContent = "Calculating Upload Capacity (2MB Data Uplink)...";
-            const uploadSize = 2 * 1024 * 1024; // 2MB
+            const uploadSize = 2 * 1024 * 1024;
             const blob = new Blob([new Uint8Array(uploadSize)]);
             const upStart = performance.now();
             try {
-                // Using httpbin for reliable POST testing
-                await fetch('https://httpbin.org/post', {
-                    method: 'POST',
-                    body: blob,
-                    cache: 'no-store'
-                });
+                await fetch('https://httpbin.org/post', { method: 'POST', body: blob, cache: 'no-store' });
                 const upDuration = (performance.now() - upStart) / 1000;
                 const upMbps = ((uploadSize * 8) / 1000000) / upDuration;
                 uploadDisplay.textContent = upMbps.toFixed(2) + " Mbps";
-            } catch(e) {
+            } catch (e) {
                 uploadDisplay.textContent = "ERR";
-                console.error("Upload Probe Failed:", e);
             }
 
             progressBar.style.width = '100%';
@@ -1056,15 +1509,15 @@
             btn.textContent = "Recalibrate Network";
         }
 
+        /* --- Media Toolkit (Preserved) --- */
         let selectedImages = [];
         function handleImageUpload(e) {
             selectedImages = Array.from(e.target.files);
-            const preview = document.getElementById('img-preview');
-            preview.innerHTML = selectedImages.map(f => `<span class="tech-tag">${f.name}</span>`).join('');
+            document.getElementById('img-preview').innerHTML = selectedImages.map(f => `<span class="tech-tag">${escapeHtml(f.name)}</span>`).join('');
         }
 
         async function processImages() {
-            if(!selectedImages.length) return alert("Select images first.");
+            if (!selectedImages.length) return alert("Select images first.");
             const btn = document.querySelector('button[onclick="processImages()"]');
             const originalText = btn.textContent;
             btn.textContent = "Processing...";
@@ -1073,37 +1526,25 @@
             const format = document.getElementById('img-format').value;
             const scale = parseInt(document.getElementById('img-scale').value) / 100;
             const depth = document.getElementById('img-depth').value;
-            
             const zip = new JSZip();
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
 
-            for(let i=0; i<selectedImages.length; i++) {
+            for (let i = 0; i < selectedImages.length; i++) {
                 const file = selectedImages[i];
                 const img = new Image();
                 img.src = URL.createObjectURL(file);
                 await new Promise(r => img.onload = r);
-
                 canvas.width = img.width * scale;
                 canvas.height = img.height * scale;
-
-                if(depth === 'grayscale') {
-                    ctx.filter = 'grayscale(100%)';
-                } else if(depth === 'sepia') {
-                    ctx.filter = 'sepia(100%)';
-                } else {
-                    ctx.filter = 'none';
-                }
-
+                ctx.filter = depth === 'grayscale' ? 'grayscale(100%)' : depth === 'sepia' ? 'sepia(100%)' : 'none';
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                
                 const blob = await new Promise(r => canvas.toBlob(r, format, 0.9));
                 const ext = format.split('/')[1];
-                const newName = file.name.split('.')[0] + '_processed.' + ext;
-                zip.file(newName, blob);
+                zip.file(file.name.split('.')[0] + '_processed.' + ext, blob);
             }
 
-            const content = await zip.generateAsync({type:"blob"});
+            const content = await zip.generateAsync({ type: "blob" });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(content);
             link.download = "EliteSoftware_Images.zip";
@@ -1116,8 +1557,7 @@
         let selectedAudio = [];
         function handleAudioUpload(e) {
             selectedAudio = Array.from(e.target.files);
-            const status = document.getElementById('audio-status');
-            status.textContent = selectedAudio.length + " files queued for transcoding.";
+            document.getElementById('audio-status').textContent = selectedAudio.length + " files queued for transcoding.";
         }
 
         function audioBufferToWav(buffer) {
@@ -1125,72 +1565,61 @@
                 length = buffer.length * numOfChan * 2 + 44,
                 bufferArr = new ArrayBuffer(length),
                 view = new DataView(bufferArr),
-                channels = [], i, sample,
-                offset = 0,
-                pos = 0;
+                channels = [], i, sample, offset = 0, pos = 0;
 
             function setUint16(data) { view.setUint16(offset, data, true); offset += 2; }
             function setUint32(data) { view.setUint32(offset, data, true); offset += 4; }
 
-            setUint32(0x46464952); // "RIFF"
-            setUint32(length - 8); // file length - 8
-            setUint32(0x45564157); // "WAVE"
-
-            setUint32(0x20746d66); // "fmt " chunk
-            setUint32(16); // length = 16
-            setUint16(1); // PCM (uncompressed)
+            setUint32(0x46464952);
+            setUint32(length - 8);
+            setUint32(0x45564157);
+            setUint32(0x20746d66);
+            setUint32(16);
+            setUint16(1);
             setUint16(numOfChan);
             setUint32(buffer.sampleRate);
-            setUint32(buffer.sampleRate * 2 * numOfChan); // avg. bytes/sec
-            setUint16(numOfChan * 2); // block-align
-            setUint16(16); // 16-bit
+            setUint32(buffer.sampleRate * 2 * numOfChan);
+            setUint16(numOfChan * 2);
+            setUint16(16);
+            setUint32(0x61746164);
+            setUint32(length - pos - 4);
 
-            setUint32(0x61746164); // "data" - chunk
-            setUint32(length - pos - 4); // chunk length
-
-            for (i = 0; i < buffer.numberOfChannels; i++)
-                channels.push(buffer.getChannelData(i));
-
+            for (i = 0; i < buffer.numberOfChannels; i++) channels.push(buffer.getChannelData(i));
             while (pos < buffer.length) {
                 for (i = 0; i < numOfChan; i++) {
-                    sample = Math.max(-1, Math.min(1, channels[i][pos])); // clamp
+                    sample = Math.max(-1, Math.min(1, channels[i][pos]));
                     sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767) | 0;
                     view.setInt16(offset, sample, true);
                     offset += 2;
                 }
                 pos++;
             }
-
             return new Blob([bufferArr], { type: "audio/wav" });
         }
 
         async function processAudio() {
-            if(!selectedAudio.length) return alert("Select media files first.");
+            if (!selectedAudio.length) return alert("Select media files first.");
             const btn = document.getElementById('audio-process-btn');
             const status = document.getElementById('audio-status');
             btn.disabled = true;
             btn.style.opacity = '0.5';
-            
+
             const zip = new JSZip();
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             const ctx = new AudioContext();
 
-            for(let i=0; i<selectedAudio.length; i++) {
+            for (let i = 0; i < selectedAudio.length; i++) {
                 const file = selectedAudio[i];
-                status.textContent = `Transcoding [${i+1}/${selectedAudio.length}]: ${file.name}...`;
+                status.textContent = `Transcoding [${i + 1}/${selectedAudio.length}]: ${file.name}...`;
                 try {
                     const arrayBuffer = await file.arrayBuffer();
                     const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
-                    const wavBlob = audioBufferToWav(audioBuffer);
-                    const newName = file.name.split('.')[0] + '_transcoded.wav';
-                    zip.file(newName, wavBlob);
-                } catch(e) {
-                    console.error("Failed to decode:", file.name, e);
-                }
+                    zip.file(file.name.split('.')[0] + '_transcoded.wav', audioBufferToWav(audioBuffer));
+                } catch (e) {}
             }
 
             status.textContent = "Packaging archive...";
-            const content = await zip.generateAsync({type:"blob"});
+            const content = await zip.generateAsync({ type: "blob" });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(content);
             link.download = "EliteSoftware_Audio.zip";
@@ -1201,10 +1630,9 @@
             btn.style.opacity = '1';
         }
 
-        console.log("%c EliteSoftware Station %c DENSE %c Build 6.0.0.0 ", 
-            "color: white; background: #2a7abc; font-weight: bold; padding: 4px; border-radius: 4px 0 0 4px;", 
-            "color: white; background: #27ae60; padding: 4px;",
-            "color: #444; background: #eee; padding: 4px; border-radius: 0 4px 4px 0;");
+        /* --- Init on Load --- */
+        loadGitHubTelemetry();
+        renderProjectGallery();
     </script>
 </body>
 </html>
