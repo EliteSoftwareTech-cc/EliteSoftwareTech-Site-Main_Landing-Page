@@ -70,16 +70,32 @@
             box-shadow: 0 0 100px rgba(0,0,0,0.45);
         }
 
-        /* --- Header: Compact Vista Gloss --- */
+        /* --- Header: Dark Glossy Obsidian-Teal Vista Banner --- */
         header {
-            background: linear-gradient(to bottom, rgba(255,255,255,0.96) 0%, rgba(215,232,252,0.92) 100%);
-            padding: 10px 28px;
-            border-bottom: 1px solid rgba(18, 58, 102, 0.38);
+            position: relative;
+            background: linear-gradient(180deg,
+                #1d3147 0%,
+                #102033 49%,
+                #081320 50%,
+                #0f2b3c 100%
+            );
+            padding: 12px 28px;
+            border-bottom: 1px solid #040a12;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(0, 255, 230, 0.28);
             flex-shrink: 0;
             z-index: 100;
         }
 
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 46%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+            pointer-events: none;
+        }
+
         .header-flex {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -97,25 +113,26 @@
         .corporate-logo {
             height: 65px;
             width: auto;
-            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 3px 10px rgba(0, 220, 210, 0.35));
         }
 
         .brand-text h1 {
             font-size: 30px;
             font-weight: 700;
-            color: #003b75;
-            letter-spacing: -1.2px;
-            text-shadow: 0 1px 0 #fff;
+            color: #ffffff;
+            letter-spacing: -1.1px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.75);
             line-height: 1;
         }
 
         .brand-text p {
             font-size: 11px;
-            color: #4a5a6a;
+            color: #6ce8e0;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.8px;
-            margin-top: 3px;
+            margin-top: 4px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
         .header-status-stack {
@@ -751,7 +768,7 @@
                                 <span id="status-text">CORE SYSTEMS: NOMINAL</span>
                             </div>
                         </div>
-                        <div style="font-size: 10px; color: #516478; font-weight: 700;">
+                        <div style="font-size: 10px; color: #a8c7e4; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.75);">
                             BUILD: 7.0.0.0_PRODUCTION | UPDATED: 20-NOV-2026
                         </div>
                     </div>
