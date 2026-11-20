@@ -546,26 +546,58 @@
         }
 
         .kb-rendered {
-            background: #f8fbff;
+            background: #ffffff;
             border: 1px solid #b8cde3;
             border-radius: 8px;
-            padding: 18px;
-            max-height: 460px;
-            overflow-y: auto;
+            padding: 22px 24px;
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.65;
+            color: #1c2d3e;
+            overflow-x: auto;
         }
-        .kb-rendered h1, .kb-rendered h2, .kb-rendered h3 {
+        .kb-rendered h1, .kb-rendered h2, .kb-rendered h3, .kb-rendered h4 {
             color: #003b75;
-            margin: 12px 0 6px;
+            margin: 16px 0 8px;
+            border-bottom: 1px solid #e3ecf5;
+            padding-bottom: 4px;
+        }
+        .kb-rendered p {
+            margin: 8px 0;
+        }
+        .kb-rendered ul, .kb-rendered ol {
+            margin: 8px 0 10px 22px;
+        }
+        .kb-rendered a {
+            color: #1a66b3;
+            font-weight: 600;
+        }
+        .kb-rendered img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .kb-rendered code {
+            font-family: Consolas, monospace;
+            background: #eef4fb;
+            padding: 1px 5px;
+            border-radius: 4px;
+            color: #0b3b6e;
         }
         .kb-rendered pre {
             background: #07192b;
             color: #8ceeff;
-            padding: 10px;
+            padding: 12px;
             border-radius: 6px;
             overflow-x: auto;
-            margin: 8px 0;
+            margin: 10px 0;
+        }
+        .kb-rendered pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        .kb-rendered .anchor, .kb-rendered .octicon-link {
+            display: none;
         }
 
         footer {
@@ -654,30 +686,6 @@
                                     <button class="elite-button" onclick="showPage('projects')">Browse Project Archive</button>
                                     <button class="elite-button" onclick="showPage('radar')">Inspect Live GitHub Radar</button>
                                     <button class="elite-button" onclick="showPage('contact')">Contact Support</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="glass-box">
-                            <div class="box-header">
-                                <span>PidgeWin32 Native Win32 Mod Manager &amp; Sovereign Catalog</span>
-                                <span class="status-badge live">FLAGSHIP LIVE</span>
-                            </div>
-                            <div class="box-body">
-                                <div class="info-section">
-                                    <h3>Zero-Bloat Native Win32 Injection Suite</h3>
-                                    <p><strong>PidgeWin32</strong> is EliteSoftware's sovereign Win32 customization platform &mdash; featuring a high-speed native C++/Clang local compiler, dual-mode <code>.pw32.cpp</code> and legacy <code>.wh.cpp</code> mod architecture, a native Win32 UI &amp; classic tray balloon daemon, and an independent mod gallery.</p>
-                                </div>
-                                <div class="project-action-row">
-                                    <a href="https://pidgewin32.elitesoftwaretech.cc/" target="_blank" rel="noopener" class="project-action-btn primary">
-                                        PidgeWin32 Main Portal
-                                    </a>
-                                    <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" target="_blank" rel="noopener" class="project-action-btn repo">
-                                        Browse Online Mod Gallery
-                                    </a>
-                                    <a href="https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/releases/latest/download/PidgeWin32-Latest-win64.zip" class="project-action-btn download">
-                                        Download Latest Release
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1002,7 +1010,7 @@
                             <img src="https://img.icons8.com/fluency/48/settings.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> PidgeWin32 Mod Manager
                         </a>
                         <a href="https://pidgewin32-gallery.elitesoftwaretech.cc/" class="conduit-link" target="_blank" rel="noopener" style="background: linear-gradient(to bottom, #ffffff, #e6fff8);">
-                            <img src="https://img.icons8.com/fluency/48/modules.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> PidgeWin32 Mod Gallery
+                            <img src="https://img.icons8.com/fluency/48/software-box.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> PidgeWin32 Mod Gallery
                         </a>
                         <a href="https://coming-soon.elitesoftwaretech.cc/" class="conduit-link" target="_blank" rel="noopener">
                             <img src="https://img.icons8.com/fluency/48/security-shield-green.png" width="18" style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));"> Staging Gateway
@@ -1250,27 +1258,31 @@
             }));
         }
 
-        /* --- Live Knowledge Base (GitHub-Backed Markdown Viewer) --- */
+        /* --- Live Knowledge Base (GitHub-Backed Rendered Markdown Viewer) --- */
         const KB_SOURCES = {
             'profile': {
                 label: 'TheShadyRainbow4/TheShadyRainbow4 (Profile README)',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/TheShadyRainbow4/readme',
                 raw: 'https://raw.githubusercontent.com/TheShadyRainbow4/TheShadyRainbow4/main/README.md',
-                fallback: 'https://github.com/TheShadyRainbow4'
+                repoUrl: 'https://github.com/TheShadyRainbow4'
             },
             'pidgewin32': {
                 label: 'TheShadyRainbow4/PidgeWin32_Parent-Repo (README)',
+                api: 'https://api.github.com/repos/TheShadyRainbow4/PidgeWin32_Parent-Repo/readme',
                 raw: 'https://raw.githubusercontent.com/TheShadyRainbow4/PidgeWin32_Parent-Repo/main/README.md',
-                fallback: 'https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo'
+                repoUrl: 'https://github.com/TheShadyRainbow4/PidgeWin32_Parent-Repo'
             },
             'build-auto': {
                 label: 'EliteSoftwareTech-cc/EliteSoftware_Build-Automations (README)',
+                api: 'https://api.github.com/repos/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/readme',
                 raw: 'https://raw.githubusercontent.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations/main/README.md',
-                fallback: 'https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations'
+                repoUrl: 'https://github.com/EliteSoftwareTech-cc/EliteSoftware_Build-Automations'
             },
             'kb-repo': {
                 label: 'EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase (Custom KB Repo)',
+                api: 'https://api.github.com/repos/EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase/readme',
                 raw: 'https://raw.githubusercontent.com/EliteSoftwareTech-cc/EliteSoftwareTech-KnowledgeBase/main/README.md',
-                fallback: 'https://github.com/EliteSoftwareTech-cc'
+                repoUrl: 'https://github.com/EliteSoftwareTech-cc'
             }
         };
 
@@ -1278,28 +1290,25 @@
             return str.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
         }
 
-        function simpleMarkdownToHtml(md) {
-            const lines = md.split(/\r?\n/);
-            let html = '';
-            let inCode = false;
-            for (const line of lines) {
-                if (line.trim().startsWith('```')) {
-                    html += inCode ? '</pre>' : '<pre>';
-                    inCode = !inCode;
-                    continue;
+        function sanitizeRenderedHtml(rawHtml, repoUrl) {
+            const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
+            doc.querySelectorAll('script, iframe, object, embed, style').forEach(el => el.remove());
+            doc.querySelectorAll('*').forEach(el => {
+                for (const attr of Array.from(el.attributes)) {
+                    if (attr.name.startsWith('on') || (attr.name === 'href' && attr.value.trim().toLowerCase().startsWith('javascript:'))) {
+                        el.removeAttribute(attr.name);
+                    }
                 }
-                if (inCode) {
-                    html += escapeHtml(line) + '\n';
-                    continue;
+            });
+            doc.querySelectorAll('a[href]').forEach(a => {
+                const href = a.getAttribute('href') || '';
+                if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+                    a.setAttribute('href', repoUrl.replace(/\/$/, '') + '/blob/main/' + href.replace(/^\.?\//, ''));
                 }
-                if (line.startsWith('### ')) html += `<h3>${escapeHtml(line.slice(4))}</h3>`;
-                else if (line.startsWith('## ')) html += `<h2>${escapeHtml(line.slice(3))}</h2>`;
-                else if (line.startsWith('# ')) html += `<h1>${escapeHtml(line.slice(2))}</h1>`;
-                else if (line.trim().startsWith('- ') || line.trim().startsWith('* ')) html += `<p>&bull; ${escapeHtml(line.trim().slice(2))}</p>`;
-                else if (line.trim()) html += `<p>${escapeHtml(line)}</p>`;
-            }
-            if (inCode) html += '</pre>';
-            return html;
+                a.setAttribute('target', '_blank');
+                a.setAttribute('rel', 'noopener');
+            });
+            return doc.body.innerHTML;
         }
 
         async function loadKnowledgeSource(key, btn) {
@@ -1314,14 +1323,16 @@
             out.innerHTML = 'Loading live content from GitHub...';
 
             try {
-                const res = await fetch(src.raw);
+                const res = await fetch(src.api, {
+                    headers: { 'Accept': 'application/vnd.github.html+json' }
+                });
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const text = await res.text();
-                meta.innerHTML = `Live Source: <a href="${src.fallback}" target="_blank" rel="noopener">${src.label}</a>`;
-                out.innerHTML = simpleMarkdownToHtml(text);
+                const html = await res.text();
+                meta.innerHTML = `Live Source: <a href="${src.repoUrl}" target="_blank" rel="noopener">${src.label}</a>`;
+                out.innerHTML = sanitizeRenderedHtml(html, src.repoUrl);
             } catch (e) {
                 meta.textContent = `Source not live yet (${e.message})`;
-                out.innerHTML = `<p>Could not load <code>${escapeHtml(src.raw)}</code> (${escapeHtml(e.message)}).</p><p style="margin-top:8px;">When the dedicated Knowledge Base repository is created, this viewer renders its markdown directly from GitHub without hardcoding articles.</p>`;
+                out.innerHTML = `<p>Could not load <code>${escapeHtml(src.api)}</code> (${escapeHtml(e.message)}).</p><p style="margin-top:8px;">When the dedicated Knowledge Base repository is created, this viewer renders its GitHub Markdown HTML live without hardcoding articles.</p>`;
             }
         }
 
