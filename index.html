@@ -456,6 +456,34 @@
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.12);
         }
 
+        #project-gallery-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        #project-gallery-list .glass-box {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #project-gallery-list .box-header {
+            padding: 8px 14px;
+            font-size: 13.5px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        #project-gallery-list .box-body {
+            padding: 14px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .project-action-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
@@ -463,16 +491,22 @@
             margin-top: 12px;
         }
 
+        #project-gallery-list .project-action-row {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
         .project-action-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 8px 12px;
+            padding: 8px 10px;
             border-radius: 6px;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 700;
             text-decoration: none;
+            text-align: center;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.65), 0 2px 4px rgba(0,0,0,0.12);
             transition: filter 0.15s ease;
         }
@@ -483,10 +517,28 @@
             border: 1px solid #134a82;
             text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
         }
+        #page-projects .project-action-btn.primary {
+            background: linear-gradient(to bottom, #9af7f0 0%, #48dcd2 49%, #24bab0 50%, #40d1c7 100%);
+            color: #033330;
+            border: 1px solid #17877f;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.65);
+        }
         .project-action-btn.repo {
             background: linear-gradient(to bottom, #ffffff 0%, #dceeff 100%);
             color: #0b4a85;
             border: 1px solid #89b0d8;
+        }
+        #page-projects .project-action-btn.repo {
+            background: linear-gradient(to bottom, #66707a 0%, #454d56 49%, #2f363d 50%, #3f4750 100%);
+            color: #ffffff;
+            border: 1px solid #1f2429;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.65);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 2px 4px rgba(0,0,0,0.18);
+        }
+        #page-projects .status-badge.live {
+            background: linear-gradient(to bottom, #c57dff 0%, #9440eb 49%, #7320c9 50%, #8f3be3 100%);
+            color: #ffffff;
+            border: 1px solid #4c0f8f;
         }
         .project-action-btn.download {
             background: linear-gradient(to bottom, #3dd67e 0%, #23a85c 50%, #1d8f4d 51%, #26ad60 100%);
